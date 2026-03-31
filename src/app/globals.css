@@ -3,6 +3,7 @@
 @theme inline {
   --color-plum: #530B39;
   --color-plum-light: #6B1049;
+  --color-plum-dark: #3A0828;
   --color-neon: #CAFF4A;
   --color-neon-dark: #A8D63A;
   --color-teal: #006D6D;
@@ -27,11 +28,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scroll animation */
+/* ─── Hero text reveal ─── */
+@keyframes heroReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) skewY(3deg);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) skewY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-reveal {
+  opacity: 0;
+  animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-reveal-delay-1 { animation-delay: 0.15s; }
+.hero-reveal-delay-2 { animation-delay: 0.3s; }
+.hero-reveal-delay-3 { animation-delay: 0.5s; }
+.hero-reveal-delay-4 { animation-delay: 0.7s; }
+.hero-reveal-delay-5 { animation-delay: 0.9s; }
+
+/* ─── Scroll animation ─── */
 .fade-up {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-up.visible {
@@ -41,34 +67,75 @@ body {
 
 /* Stagger children */
 .stagger-children .fade-up:nth-child(1) { transition-delay: 0ms; }
-.stagger-children .fade-up:nth-child(2) { transition-delay: 100ms; }
-.stagger-children .fade-up:nth-child(3) { transition-delay: 200ms; }
-.stagger-children .fade-up:nth-child(4) { transition-delay: 300ms; }
-.stagger-children .fade-up:nth-child(5) { transition-delay: 400ms; }
+.stagger-children .fade-up:nth-child(2) { transition-delay: 80ms; }
+.stagger-children .fade-up:nth-child(3) { transition-delay: 160ms; }
+.stagger-children .fade-up:nth-child(4) { transition-delay: 240ms; }
+.stagger-children .fade-up:nth-child(5) { transition-delay: 320ms; }
 
-/* Ticker animation */
+/* ─── Marquee / infinite scroll ─── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Ticker animation ─── */
 @keyframes ticker {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 .ticker-scroll {
-  animation: ticker 30s linear infinite;
+  animation: ticker 25s linear infinite;
 }
 
-/* X motif overlay */
-.x-motif::after {
+/* ─── Offering card hover glow ─── */
+.offering-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.offering-card::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(45deg, transparent 40%, rgba(83, 11, 57, 0.08) 40%, rgba(83, 11, 57, 0.08) 60%, transparent 60%),
-    linear-gradient(-45deg, transparent 40%, rgba(83, 11, 57, 0.08) 40%, rgba(83, 11, 57, 0.08) 60%, transparent 60%);
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #530B39, transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-/* Custom selection */
+.offering-card:hover::before {
+  opacity: 1;
+}
+
+/* ─── Custom selection ─── */
 ::selection {
-  background: rgba(83, 11, 57, 0.15);
+  background: rgba(83, 11, 57, 0.2);
   color: #1a1a1a;
+}
+
+/* ─── Smooth image zoom on hover ─── */
+.img-zoom {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-zoom:hover {
+  transform: scale(1.03);
+}
+
+/* ─── Editorial divider ─── */
+.editorial-line {
+  width: 48px;
+  height: 2px;
+  background: #530B39;
 }
