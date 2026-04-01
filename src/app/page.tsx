@@ -533,7 +533,7 @@ export default function Home() {
                 About Us
               </span>
               <h2 className="font-display text-[clamp(1.8rem,3.5vw,3rem)] leading-[1.05] tracking-tight mb-6">
-                Independent. Nimble. Inside the culture.
+                Insiders.
               </h2>
               <div className="editorial-line mb-8" />
               <div className="space-y-5 text-white/60 leading-relaxed text-base md:text-lg">
@@ -582,11 +582,9 @@ export default function Home() {
             Get Started
           </span>
           <h2 className="font-display text-[clamp(2.2rem,6vw,4.5rem)] leading-[0.95] tracking-tight mb-6 fade-up">
-            <span className="md:whitespace-nowrap">Ready to show up</span><br className="hidden md:block" /> <span className="md:whitespace-nowrap">in the culture?</span>
+            <span className="md:whitespace-nowrap">Ready to show up</span><br className="hidden md:block" /> <span className="md:whitespace-nowrap">culture?</span>
           </h2>
-          <p className="text-black/40 text-lg md:text-xl mb-12 leading-relaxed max-w-lg mx-auto fade-up">
-            Let&apos;s talk about how your brand can authentically connect with the fandoms that matter.
-          </p>
+          <div className="mb-12" />
           <a
             href="mailto:yvette@madexus.com"
             className="inline-flex bg-neon text-gray-900 px-12 py-5 text-sm font-bold uppercase tracking-[0.08em] hover:bg-neon-dark cta-btn fade-up"
