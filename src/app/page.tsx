@@ -64,16 +64,16 @@ const caseStudies = [
     results: 'The platform became a defining example of how brands embed into culture at scale, driving sustained engagement, creator equity, and measurable business impact across channels.',
   },
   {
-    title: 'WRTG Game Changers',
+    title: 'Women Raise the Game',
     category: 'Women Raise the Game · Content',
-    image: '/images/clients/wrtg.webp',
+    image: '/images/clients/wrtg-new.png',
     video: '/videos/wrtg-gamechangers.mp4',
     challenge: 'Women\'s sports needed a platform that celebrated the athletes and stories driving the biggest cultural shift in a generation.',
     solution: 'We created Game Changers — a content series spotlighting the women redefining sport, culture, and fandom through their stories and impact.',
     results: 'Game Changers became a flagship content franchise, building audience, brand partnerships, and cultural credibility for Women Raise the Game.',
   },
   {
-    title: 'Introducing Boldyn Networks',
+    title: 'Boldyn Networks',
     category: 'Brand · Campaign',
     image: '/images/clients/boldyn.webp',
     video: '/videos/boldyn-intro.mp4',
@@ -82,7 +82,7 @@ const caseStudies = [
     results: 'Boldyn shifted from a technical provider to a culturally relevant brand, anchored in innovation, visibility, and leadership — especially through a female-led global narrative.',
   },
   {
-    title: 'Kindli Launch',
+    title: 'Kindli',
     category: 'Brand Strategy · Go-to-Market',
     image: '/images/clients/kindli.webp',
     video: '/videos/kindli.mp4',
@@ -93,7 +93,7 @@ const caseStudies = [
   {
     title: 'Invisalign',
     category: 'Creator Campaign · Super Bowl · WRTG',
-    image: '/images/clients/invisalign.webp',
+    image: '/images/clients/diana-flores.jpg',
     video: '',
     challenge: 'Invisalign needed to connect with younger women in a way that felt personal, not clinical, and tie the brand to moments of confidence.',
     solution: 'We activated a creator-led campaign around the Super Bowl and WRTG, celebrating Diana Flores and real "confidence clicked in" moments through content, PR, and live experiences.',
@@ -272,7 +272,19 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        {/* X overlay removed per brand guidelines (BRAND-01) */}
+        {/* X overlay — single X, locked aspect ratio, stops above ticker */}
+        <div className="absolute inset-0 bottom-[48px] pointer-events-none">
+          <div className="relative w-full h-full opacity-[0.45]">
+            <Image
+              src="/images/x-graphics/x-wine.png"
+              alt=""
+              fill
+              className="object-cover object-left"
+              style={{ objectPosition: 'left center' }}
+              aria-hidden="true"
+            />
+          </div>
+        </div>
 
         {/* Hero content */}
         <div className="relative z-10 text-center text-white px-6 max-w-[1200px] mx-auto">
@@ -306,7 +318,7 @@ export default function Home() {
                 {['Media', 'Fandom Marketing', 'Creator Ad Network', 'Culture | Women | Sport'].map((item) => (
                   <span key={`${i}-${item}`} className="inline-flex items-center">
                     <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/80 mx-8">{item}</span>
-                    <span className="text-black/30 text-sm">&middot;</span>
+                    <span className="text-white text-sm">&#x2726;</span>
                   </span>
                 ))}
               </span>
@@ -397,7 +409,7 @@ export default function Home() {
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {o.tags.map((tag) => (
-                          <span key={tag} className="text-[9px] font-semibold uppercase tracking-[0.12em] px-3 py-1 border border-black/[0.08] text-black/40 group-hover:border-plum/30 group-hover:text-plum/70 transition-all duration-500">
+                          <span key={tag} className="text-[9px] font-semibold uppercase tracking-[0.12em] px-3 py-1 bg-black/[0.04] text-black/40 rounded-sm select-none">
                             {tag}
                           </span>
                         ))}

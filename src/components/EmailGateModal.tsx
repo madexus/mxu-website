@@ -2,6 +2,15 @@
 
 import { useState } from 'react';
 
+// Slug mapping for offering detail pages (pages to be created once homepage is finalized)
+const offeringSlugMap: Record<string, string> = {
+  'Media': '/offerings/media',
+  'Fandom Marketing Consultation & Campaign': '/offerings/fandom-marketing',
+  'Creators & Proprietary Creator Ad Network': '/offerings/creator-network',
+  'Women Raise the Game': '/offerings/wrtg',
+  'Culture | Women | Sport Brief & RFP': '/offerings/briefs-rfp',
+};
+
 interface EmailGateModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -17,11 +26,16 @@ export default function EmailGateModal({ isOpen, onClose, offeringTitle }: Email
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    // Navigate to offering detail page after brief confirmation
+    const slug = offeringSlugMap[offeringTitle];
     setTimeout(() => {
       setSubmitted(false);
       setEmail('');
       onClose();
-    }, 2000);
+      if (slug) {
+        window.location.href = slug;
+      }
+    }, 1500);
   };
 
   return (
@@ -87,7 +101,7 @@ export default function EmailGateModal({ isOpen, onClose, offeringTitle }: Email
               </svg>
             </div>
             <h3 className="font-display text-xl text-black mb-1">You&apos;re In</h3>
-            <p className="text-black/40 text-sm">Check your inbox for the details.</p>
+            <p className="text-black/40 text-sm">Taking you there now&hellip;</p>
           </div>
         )}
       </div>
