@@ -206,7 +206,7 @@ export default function Home() {
               href="#contact"
               className={`hidden md:inline-flex px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] transition-all duration-500 hover:-translate-y-0.5 ${navScrolled ? 'bg-black text-white hover:bg-black/85' : 'bg-white text-black hover:bg-white/90'}`}
             >
-              Let&apos;s Talk
+              Work With Us
             </a>
             <button
               className="md:hidden p-2"
@@ -272,6 +272,8 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
+        {/* X overlay removed per brand guidelines (BRAND-01) */}
+
         {/* Hero content */}
         <div className="relative z-10 text-center text-white px-6 max-w-[1200px] mx-auto">
           <div className="hero-reveal hero-reveal-delay-1">
@@ -297,13 +299,13 @@ export default function Home() {
         </div>
 
         {/* Ticker carousel — above the fold */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 bg-white py-4 overflow-hidden">
+        <div className="absolute bottom-0 left-0 right-0 z-10 bg-plum py-4 overflow-hidden">
           <div className="ticker-scroll whitespace-nowrap inline-flex">
             {[...Array(3)].map((_, i) => (
               <span key={i} className="inline-flex items-center">
                 {['Media', 'Fandom Marketing', 'Creator Ad Network', 'Culture | Women | Sport'].map((item) => (
                   <span key={`${i}-${item}`} className="inline-flex items-center">
-                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/60 mx-8">{item}</span>
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/80 mx-8">{item}</span>
                     <span className="text-black/30 text-sm">&middot;</span>
                   </span>
                 ))}
