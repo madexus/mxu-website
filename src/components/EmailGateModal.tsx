@@ -29,17 +29,20 @@ export default function EmailGateModal({ isOpen, onClose, offeringTitle }: Email
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
       <div
-        className="relative bg-white rounded-2xl p-8 md:p-12 max-w-md w-full shadow-2xl"
+        className="relative bg-white p-8 md:p-12 max-w-md w-full shadow-[0_40px_100px_rgba(0,0,0,0.15)] animate-[modalIn_0.4s_cubic-bezier(0.16,1,0.3,1)]"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Top accent line */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-plum to-transparent" />
+
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center border border-black/[0.08] text-black/30 hover:text-black hover:border-black/20 transition-all duration-300"
           aria-label="Close"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="18" y1="6" x2="6" y2="18" />
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
@@ -47,44 +50,44 @@ export default function EmailGateModal({ isOpen, onClose, offeringTitle }: Email
 
         {!submitted ? (
           <>
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-plum mb-3">
+            <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-plum mb-4">
               Unlock Details
             </div>
-            <h3 className="font-display text-2xl font-bold mb-2 leading-tight">
+            <h3 className="font-display text-2xl text-black mb-3 leading-tight">
               {offeringTitle}
             </h3>
-            <p className="text-gray-500 text-sm mb-6 leading-relaxed">
-              Enter your email to access the full details on this offering. We&apos;ll send you everything you need.
+            <p className="text-black/40 text-sm mb-8 leading-relaxed">
+              Enter your email to access full details on this offering. We&apos;ll send you everything you need.
             </p>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3">
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-plum focus:ring-1 focus:ring-plum transition-colors"
+                className="w-full px-4 py-3.5 bg-light-gray border border-black/[0.06] text-black text-sm placeholder:text-black/25 focus:outline-none focus:border-plum/40 focus:bg-white transition-all duration-300"
               />
               <button
                 type="submit"
-                className="w-full bg-plum text-white py-3 rounded-xl text-sm font-semibold hover:bg-plum-light transition-colors"
+                className="w-full bg-black text-white py-3.5 text-[13px] font-bold uppercase tracking-[0.06em] hover:bg-black/85 transition-all duration-300"
               >
                 Get Access
               </button>
             </form>
-            <p className="text-[11px] text-gray-400 mt-4 text-center">
+            <p className="text-[10px] text-black/20 mt-5 text-center tracking-wide">
               No spam. Just the good stuff.
             </p>
           </>
         ) : (
           <div className="text-center py-8">
-            <div className="w-12 h-12 bg-neon rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="2.5">
+            <div className="w-12 h-12 bg-plum flex items-center justify-center mx-auto mb-4">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <h3 className="font-display text-xl font-bold mb-1">You&apos;re In</h3>
-            <p className="text-gray-500 text-sm">Check your inbox for the details.</p>
+            <h3 className="font-display text-xl text-black mb-1">You&apos;re In</h3>
+            <p className="text-black/40 text-sm">Check your inbox for the details.</p>
           </div>
         )}
       </div>

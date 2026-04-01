@@ -14,6 +14,10 @@
   --color-off-white: #FAFAF8;
   --font-display: "Special Gothic Expanded One", "Arial Black", sans-serif;
   --font-body: "Helvetica Neue", "Helvetica", "Inter", system-ui, sans-serif;
+  --color-deep-teal: #006D6D;
+  --color-coral-red: #E13946;
+  --color-bright-pink: #FE6FF8;
+  --color-bright-purple: #604FFF;
 }
 
 html {
@@ -22,10 +26,21 @@ html {
 
 body {
   font-family: var(--font-body);
+  font-weight: 300;
   background: #ffffff;
   color: #1a1a1a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Pill highlight treatment (brand guidelines p.26) ─── */
+.pill-highlight {
+  display: inline;
+  padding: 0.05em 0.3em;
+  background: #CAFF4A;
+  color: #1a1a1a;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 /* ─── Hero text reveal ─── */
@@ -96,26 +111,16 @@ body {
   animation: ticker 25s linear infinite;
 }
 
-/* ─── Offering card hover glow ─── */
-.offering-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.offering-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #530B39, transparent);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.offering-card:hover::before {
-  opacity: 1;
+/* ─── Modal entrance animation ─── */
+@keyframes modalIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* ─── Custom selection ─── */
@@ -138,4 +143,22 @@ body {
   width: 48px;
   height: 2px;
   background: #530B39;
+}
+
+.bg-plum .editorial-line,
+.bg-\[\#64003b\] .editorial-line {
+  background: #CAFF4A;
+}
+
+/* ─── Smooth CTA button ─── */
+.cta-btn {
+  transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 800ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 400ms ease;
+  box-shadow: 0 0 0 rgba(202, 255, 74, 0);
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(202, 255, 74, 0.25);
 }
