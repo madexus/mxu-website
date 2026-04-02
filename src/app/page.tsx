@@ -578,11 +578,8 @@ export default function Home() {
         id="contact"
       >
         <div className="relative z-10 max-w-[700px] mx-auto">
-          <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-plum mb-6 block fade-up">
-            Get Started
-          </span>
           <h2 className="font-display text-[clamp(2.2rem,6vw,4.5rem)] leading-[0.95] tracking-tight mb-6 fade-up">
-            <span className="md:whitespace-nowrap">Ready to show up</span><br className="hidden md:block" /> <span className="md:whitespace-nowrap">culture?</span>
+            <span className="md:whitespace-nowrap">Ready to show up</span><br className="hidden md:block" /> <span className="md:whitespace-nowrap">in culture?</span>
           </h2>
           <div className="mb-12" />
           <a
