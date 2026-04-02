@@ -2,13 +2,58 @@
 
 import { useState } from 'react';
 
-// Slug mapping for offering detail pages (pages to be created once homepage is finalized)
-const offeringSlugMap: Record<string, string> = {
-  'Media': '/offerings/media',
-  'Fandom Marketing Consultation & Campaign': '/offerings/fandom-marketing',
-  'Creators & Proprietary Creator Ad Network': '/offerings/creator-network',
-  'Women Raise the Game': '/offerings/wrtg',
-  'Culture | Women | Sport Brief & RFP': '/offerings/briefs-rfp',
+// Offering detail content (shown after email submission)
+const offeringDetails: Record<string, { headline: string; points: string[] }> = {
+  'Media': {
+    headline: 'Strategic Media Planning & Buying',
+    points: [
+      'Data-driven media strategy designed for women\'s sports and culture audiences',
+      'Planning and buying across digital, social, broadcast, and experiential',
+      'Culturally intelligent targeting — reaching women where they actually engage',
+      'Fandom-first approach: aligning media moments with cultural tentpoles',
+      'Full-funnel measurement: awareness, engagement, and conversion',
+    ],
+  },
+  'Fandom Marketing Consultation & Campaign': {
+    headline: 'Fandom Marketing',
+    points: [
+      'Strategic consultation for brands entering women\'s sports and culture',
+      'Full campaign development: insight, strategy, creative, activation',
+      'Cultural intelligence: we identify the moments that matter before they peak',
+      'Creator integration woven into campaign architecture',
+      'Measurable outcomes tied to cultural relevance and business impact',
+    ],
+  },
+  'Creators & Proprietary Creator Ad Network': {
+    headline: 'Creator Ad Network',
+    points: [
+      'Curated network of women-led creators across sports, lifestyle, and culture',
+      'Authentic brand storytelling through trusted creator voices',
+      'Scalable campaigns from micro-creators to marquee talent',
+      'End-to-end management: briefing, production, distribution, reporting',
+      'Cross-platform activation: TikTok, Instagram, YouTube, and emerging channels',
+    ],
+  },
+  'Women Raise the Game': {
+    headline: 'Women Raise the Game',
+    points: [
+      'Our proprietary platform — media brand, community, and cultural engine',
+      'Content franchise celebrating women redefining sport, culture, and fandom',
+      'Brand partnership opportunities across content, events, and community',
+      'Creator ecosystem built around women\'s sports culture',
+      'Demonstrating how brands become part of women\'s sports — not just sponsors of it',
+    ],
+  },
+  'Culture, Women, Sport — Briefs & RFPs': {
+    headline: 'Briefs & RFPs',
+    points: [
+      'Full-service brief development for the women\'s sports and culture space',
+      'RFP response with cultural intelligence and strategic differentiation',
+      'Cross-functional teams: strategy, media, creative, and activation',
+      'Competitive analysis and audience insight baked into every response',
+      'Fast turnaround — we move at the speed of culture',
+    ],
+  },
 };
 
 interface EmailGateModalProps {
@@ -26,33 +71,31 @@ export default function EmailGateModal({ isOpen, onClose, offeringTitle }: Email
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    // Navigate to offering detail page after brief confirmation
-    const slug = offeringSlugMap[offeringTitle];
-    setTimeout(() => {
-      setSubmitted(false);
-      setEmail('');
-      onClose();
-      if (slug) {
-        window.location.href = slug;
-      }
-    }, 1500);
   };
+
+  const handleClose = () => {
+    setSubmitted(false);
+    setEmail('');
+    onClose();
+  };
+
+  const details = offeringDetails[offeringTitle];
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      onClick={onClose}
+      onClick={handleClose}
     >
       <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
       <div
-        className="relative bg-white p-8 md:p-12 max-w-md w-full shadow-[0_40px_100px_rgba(0,0,0,0.15)] animate-[modalIn_0.4s_cubic-bezier(0.16,1,0.3,1)]"
+        className="relative bg-white p-8 md:p-12 max-w-md w-full shadow-[0_40px_100px_rgba(0,0,0,0.15)] animate-[modalIn_0.4s_cubic-bezier(0.16,1,0.3,1)] max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-plum to-transparent" />
 
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center border border-black/[0.08] text-black/30 hover:text-black hover:border-black/20 transition-all duration-300"
           aria-label="Close"
         >
@@ -71,7 +114,7 @@ export default function EmailGateModal({ isOpen, onClose, offeringTitle }: Email
               {offeringTitle}
             </h3>
             <p className="text-black/40 text-sm mb-8 leading-relaxed">
-              Enter your email to access full details on this offering. We&apos;ll send you everything you need.
+              Enter your email to access full details on this offering.
             </p>
             <form onSubmit={handleSubmit} className="space-y-3">
               <input
@@ -94,14 +137,33 @@ export default function EmailGateModal({ isOpen, onClose, offeringTitle }: Email
             </p>
           </>
         ) : (
-          <div className="text-center py-8">
-            <div className="w-12 h-12 bg-plum flex items-center justify-center mx-auto mb-4">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
+          <div className="py-4">
+            <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-plum mb-4">
+              {offeringTitle}
             </div>
-            <h3 className="font-display text-xl text-black mb-1">You&apos;re In</h3>
-            <p className="text-black/40 text-sm">Taking you there now&hellip;</p>
+            <h3 className="font-display text-2xl text-black mb-6 leading-tight">
+              {details?.headline || offeringTitle}
+            </h3>
+            <ul className="space-y-4">
+              {details?.points.map((point, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-5 h-5 bg-plum/10 flex items-center justify-center mt-0.5">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#530B39" strokeWidth="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </span>
+                  <span className="text-sm text-black/70 leading-relaxed">{point}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 pt-6 border-t border-black/[0.06]">
+              <a
+                href="mailto:yvette@madexus.com"
+                className="w-full bg-black text-white py-3.5 text-[13px] font-bold uppercase tracking-[0.06em] hover:bg-black/85 transition-all duration-300 inline-flex items-center justify-center"
+              >
+                Work With Us
+              </a>
+            </div>
           </div>
         )}
       </div>
