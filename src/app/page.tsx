@@ -634,8 +634,11 @@ export default function Home() {
             <div>
               <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/30 mb-5">Connect</h4>
               <div className="space-y-3">
-                {['Instagram', 'LinkedIn', 'Twitter / X', 'YouTube'].map((item) => (
-                  <a key={item} href="#" className="block text-sm text-white/50 hover:text-neon transition-colors">{item}</a>
+                {[
+                  ['Instagram', 'https://www.instagram.com/itsmadexus/'],
+                  ['LinkedIn', 'https://www.linkedin.com/company/madexus/'],
+                ].map(([label, href]) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="block text-sm text-white/50 hover:text-neon transition-colors">{label}</a>
                 ))}
               </div>
             </div>
