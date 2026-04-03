@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://madexus.com/sitemap.xml
+
+# AI/LLM Context
+# See https://madexus.com/llms.txt for structured context about this organization
