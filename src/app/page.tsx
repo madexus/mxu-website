@@ -265,7 +265,7 @@ export default function Home() {
             src="/images/hero-firefly.png"
             alt="MXU Hero"
             fill
-            className="object-cover object-right-top scale-110"
+            className="object-cover object-center scale-105"
             priority
             sizes="100vw"
           />
@@ -294,7 +294,7 @@ export default function Home() {
             </span>
           </div>
           <h1 className="font-display hero-reveal hero-reveal-delay-2 text-[clamp(2.8rem,8vw,6rem)] leading-[1.05] tracking-tight mb-6">
-            Culture. Women. Sport.
+            Culture. Women. Sports.
           </h1>
           <p className="hero-reveal hero-reveal-delay-3 text-lg md:text-xl text-white/70 max-w-[560px] mx-auto mb-10 md:mb-14 leading-relaxed">
             madeXus is the cultural intelligence agency that connects brands authentically with women&apos;s fandoms. Strategy, media, creators, and activations.
@@ -606,7 +606,7 @@ export default function Home() {
                 />
               </div>
               <p className="text-sm text-white/40 leading-relaxed">
-                Culture. Women. Sport.<br />
+                Culture. Women. Sports.<br />
                 The cultural intelligence agency.
               </p>
             </div>

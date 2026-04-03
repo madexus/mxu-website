@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "madeXus — Culture. Women. Sport.",
+  title: "madeXus — Culture. Women. Sports.",
   description:
     "madeXus is the cultural intelligence agency that connects brands authentically with women's fandoms — through strategy, media, creators, and activations. We are the insiders.",
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "madeXus — Culture. Women. Sport.",
+    title: "madeXus — Culture. Women. Sports.",
     description:
       "The cultural intelligence agency that connects brands authentically with women's fandoms. Strategy, media, creators, and activations.",
     url: "https://madexus.com",
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "madeXus — Culture. Women. Sport. The cultural intelligence agency.",
+        alt: "madeXus — Culture. Women. Sports. The cultural intelligence agency.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "madeXus — Culture. Women. Sport.",
+    title: "madeXus — Culture. Women. Sports.",
     description:
       "The cultural intelligence agency that connects brands authentically with women's fandoms.",
     images: ["/images/og-image.jpg"],
@@ -123,7 +123,7 @@ const jsonLd = {
         "Creator ad networks",
         "Women Raise the Game",
       ],
-      slogan: "Culture. Women. Sport.",
+      slogan: "Culture. Women. Sports.",
       numberOfEmployees: {
         "@type": "QuantitativeValue",
         minValue: 7,
@@ -221,7 +221,7 @@ const jsonLd = {
       "@type": "WebPage",
       "@id": "https://madexus.com/#webpage",
       url: "https://madexus.com",
-      name: "madeXus — Culture. Women. Sport.",
+      name: "madeXus — Culture. Women. Sports.",
       isPartOf: { "@id": "https://madexus.com/#website" },
       about: { "@id": "https://madexus.com/#organization" },
       description:
