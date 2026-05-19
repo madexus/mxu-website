@@ -299,23 +299,20 @@ export default function Home() {
         </div>
 
         {/* Hero content */}
-        <div className="relative z-10 text-left text-white px-6 md:px-12 max-w-[1400px] w-full mx-auto pt-20">
-          <div className="hero-reveal hero-reveal-delay-1">
-            <span className="inline-block text-[11px] md:text-[13px] font-light uppercase tracking-[0.32em] text-white mb-7 md:mb-9">
-              We Are the Insiders
-            </span>
+        <div className="relative z-10 text-left text-white px-6 md:px-12 max-w-[1400px] w-full mx-auto pt-24 md:pt-32">
+          <div className="hero-reveal hero-reveal-delay-1 max-w-[720px]">
+            <Image
+              src="/madexus-logo.svg"
+              alt="madeXus"
+              width={620}
+              height={184}
+              className="w-[min(82vw,620px)] h-auto brightness-0 invert mb-8 md:mb-10"
+              priority
+            />
           </div>
-          <h1 className="font-display hero-reveal hero-reveal-delay-2 text-[clamp(3.4rem,8vw,7rem)] leading-[0.9] max-w-[760px] mb-9">
-            Culture. Women. Sport.
-          </h1>
-          <div className="hero-reveal hero-reveal-delay-3 flex flex-col sm:flex-row gap-4">
-            <a
-              href="#contact"
-              className="bg-white text-coral-red px-10 py-4 text-sm font-bold uppercase hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5 inline-block"
-            >
-              Work With Us
-            </a>
-
+          <div className="hero-reveal hero-reveal-delay-2 font-light text-[clamp(1.55rem,3.4vw,2.7rem)] leading-[1.05] text-white">
+            <p className="uppercase">INSIDERS for</p>
+            <p>Culture. Women. Sport.</p>
           </div>
         </div>
 
