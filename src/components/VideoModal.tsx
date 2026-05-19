@@ -37,7 +37,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title }: VideoMo
       className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-[modalIn_0.3s_ease]" />
+      <div className="absolute inset-0 bg-charcoal/80 backdrop-blur-sm animate-[modalIn_0.3s_ease]" />
       <div
         className="relative w-full max-w-4xl animate-[modalIn_0.4s_cubic-bezier(0.16,1,0.3,1)]"
         onClick={(e) => e.stopPropagation()}
@@ -60,7 +60,7 @@ export default function VideoModal({ isOpen, onClose, videoSrc, title }: VideoMo
           src={videoSrc}
           controls
           playsInline
-          className="w-full aspect-video bg-black"
+          className="w-full aspect-video bg-charcoal"
           aria-label={title}
         />
 

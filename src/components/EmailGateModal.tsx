@@ -68,9 +68,19 @@ export default function EmailGateModal({ isOpen, onClose, offeringTitle }: Email
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+
+    try {
+      await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, offering: offeringTitle }),
+      });
+    } catch {
+      // Don't block the user experience
+    }
   };
 
   const handleClose = () => {
@@ -86,17 +96,17 @@ export default function EmailGateModal({ isOpen, onClose, offeringTitle }: Email
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       onClick={handleClose}
     >
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-coral-red/40 backdrop-blur-md" />
       <div
-        className="relative bg-white p-8 md:p-12 max-w-md w-full shadow-[0_40px_100px_rgba(0,0,0,0.15)] animate-[modalIn_0.4s_cubic-bezier(0.16,1,0.3,1)] max-h-[90vh] overflow-y-auto"
+        className="relative bg-white p-8 md:p-12 max-w-md w-full shadow-[0_40px_100px_rgba(39,66,72,0.15)] animate-[modalIn_0.4s_cubic-bezier(0.16,1,0.3,1)] max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-plum to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-coral-red to-transparent" />
 
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center border border-black/[0.08] text-black/30 hover:text-black hover:border-black/20 transition-all duration-300"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center border border-charcoal/[0.08] text-charcoal/30 hover:text-charcoal hover:border-charcoal/20 transition-all duration-300"
           aria-label="Close"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -107,13 +117,13 @@ export default function EmailGateModal({ isOpen, onClose, offeringTitle }: Email
 
         {!submitted ? (
           <>
-            <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-plum mb-4">
+            <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-coral-red mb-4">
               Unlock Details
             </div>
-            <h3 className="font-display text-2xl text-black mb-3 leading-tight">
+            <h3 className="font-display text-2xl text-charcoal mb-3 leading-tight">
               {offeringTitle}
             </h3>
-            <p className="text-black/40 text-sm mb-8 leading-relaxed">
+            <p className="text-charcoal/40 text-sm mb-8 leading-relaxed">
               Enter your email to access full details on this offering.
             </p>
             <form onSubmit={handleSubmit} className="space-y-3">
@@ -123,43 +133,43 @@ export default function EmailGateModal({ isOpen, onClose, offeringTitle }: Email
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="w-full px-4 py-3.5 bg-light-gray border border-black/[0.06] text-black text-sm placeholder:text-black/25 focus:outline-none focus:border-plum/40 focus:bg-white transition-all duration-300"
+                className="w-full px-4 py-3.5 bg-light-gray border border-charcoal/[0.06] text-charcoal text-sm placeholder:text-charcoal/25 focus:outline-none focus:border-coral-red/40 focus:bg-white transition-all duration-300"
               />
               <button
                 type="submit"
-                className="w-full bg-black text-white py-3.5 text-[13px] font-bold uppercase tracking-[0.06em] hover:bg-black/85 transition-all duration-300"
+                className="w-full bg-coral-red text-white py-3.5 text-[13px] font-bold uppercase tracking-[0.06em] hover:bg-coral-red/85 transition-all duration-300"
               >
                 Get Access
               </button>
             </form>
-            <p className="text-[10px] text-black/20 mt-5 text-center tracking-wide">
+            <p className="text-[10px] text-charcoal/20 mt-5 text-center tracking-wide">
               No spam. Just the good stuff.
             </p>
           </>
         ) : (
           <div className="py-4">
-            <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-plum mb-4">
+            <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-coral-red mb-4">
               {offeringTitle}
             </div>
-            <h3 className="font-display text-2xl text-black mb-6 leading-tight">
+            <h3 className="font-display text-2xl text-charcoal mb-6 leading-tight">
               {details?.headline || offeringTitle}
             </h3>
             <ul className="space-y-4">
               {details?.points.map((point, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-5 h-5 bg-plum/10 flex items-center justify-center mt-0.5">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#530B39" strokeWidth="3">
+                  <span className="flex-shrink-0 w-5 h-5 bg-coral-red/10 flex items-center justify-center mt-0.5">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E13946" strokeWidth="3">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </span>
-                  <span className="text-sm text-black/70 leading-relaxed">{point}</span>
+                  <span className="text-sm text-charcoal/70 leading-relaxed">{point}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-8 pt-6 border-t border-black/[0.06]">
+            <div className="mt-8 pt-6 border-t border-charcoal/[0.06]">
               <a
                 href="mailto:yvette@madexus.com"
-                className="w-full bg-black text-white py-3.5 text-[13px] font-bold uppercase tracking-[0.06em] hover:bg-black/85 transition-all duration-300 inline-flex items-center justify-center"
+                className="w-full bg-coral-red text-white py-3.5 text-[13px] font-bold uppercase tracking-[0.06em] hover:bg-coral-red/85 transition-all duration-300 inline-flex items-center justify-center"
               >
                 Work With Us
               </a>

@@ -1,0 +1,17 @@
+/* madeXus branded cookie consent overrides */
+:root {
+  --cc-bg: #ffffff;
+  --cc-text: #274248;
+  --cc-btn-primary-bg: #E13946;
+  --cc-btn-primary-text: #ffffff;
+  --cc-btn-primary-hover-bg: #C0282F;
+  --cc-btn-secondary-bg: #F4F4F2;
+  --cc-btn-secondary-text: #274248;
+  --cc-btn-secondary-hover-bg: #e8e8e5;
+  --cc-toggle-bg-off: #d1d1d1;
+  --cc-toggle-bg-on: #E13946;
+  --cc-cookie-category-block-bg: #F4F4F2;
+  --cc-cookie-category-block-bg-hover: #ffffff;
+  --cc-separator-border-color: #e8e8e8;
+  --cc-overlay-bg: rgba(39, 66, 72, 0.35);
+}

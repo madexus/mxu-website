@@ -1,23 +1,28 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-plum: #530B39;
-  --color-plum-light: #6B1049;
-  --color-plum-dark: #3A0828;
-  --color-neon: #CAFF4A;
-  --color-neon-dark: #A8D63A;
-  --color-teal: #006D6D;
-  --color-light-teal: #87F9F9;
-  --color-light-gray: #EDECE9;
+  --color-coral-red: #E13946;
+  --color-coral-hover: #C0282F;
+  --color-charcoal: #274248;
+  --color-soft-cream: #F4F4F2;
+  --color-muted: #9AA6A9;
+  --color-white: #FFFFFF;
+  --color-plum: #E13946;
+  --color-plum-light: #C0282F;
+  --color-plum-dark: #C0282F;
+  --color-neon: #E13946;
+  --color-neon-dark: #C0282F;
+  --color-teal: #E13946;
+  --color-light-teal: #F4F4F2;
+  --color-light-gray: #F4F4F2;
   --color-dark-teal: #274248;
-  --color-warm-gray: #F7F6F3;
-  --color-off-white: #FAFAF8;
+  --color-warm-gray: #F4F4F2;
+  --color-off-white: #FFFFFF;
   --font-display: "Special Gothic Expanded One", "Arial Black", sans-serif;
   --font-body: "Helvetica Neue", "Helvetica", "Inter", system-ui, sans-serif;
-  --color-deep-teal: #006D6D;
-  --color-coral-red: #E13946;
-  --color-bright-pink: #FE6FF8;
-  --color-bright-purple: #604FFF;
+  --color-deep-teal: #274248;
+  --color-bright-pink: #E13946;
+  --color-bright-purple: #E13946;
 }
 
 html {
@@ -27,18 +32,25 @@ html {
 body {
   font-family: var(--font-body);
   font-weight: 300;
+  line-height: 1.15;
   background: #ffffff;
-  color: #1a1a1a;
+  color: #274248;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 0.9;
 }
 
 /* ─── Pill highlight treatment (brand guidelines p.26) ─── */
 .pill-highlight {
   display: inline;
   padding: 0.05em 0.3em;
-  background: #CAFF4A;
-  color: #1a1a1a;
+  background: #E13946;
+  color: #ffffff;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -125,8 +137,8 @@ body {
 
 /* ─── Custom selection ─── */
 ::selection {
-  background: rgba(83, 11, 57, 0.2);
-  color: #1a1a1a;
+  background: rgba(225, 57, 70, 0.18);
+  color: #274248;
 }
 
 /* ─── Smooth image zoom on hover ─── */
@@ -142,12 +154,12 @@ body {
 .editorial-line {
   width: 48px;
   height: 2px;
-  background: #530B39;
+  background: #E13946;
 }
 
-.bg-plum .editorial-line,
-.bg-\[\#64003b\] .editorial-line {
-  background: #CAFF4A;
+.bg-coral-red .editorial-line,
+.bg-plum .editorial-line {
+  background: #ffffff;
 }
 
 /* ─── Smooth CTA button ─── */
@@ -155,10 +167,10 @@ body {
   transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 800ms cubic-bezier(0.16, 1, 0.3, 1),
               background-color 400ms ease;
-  box-shadow: 0 0 0 rgba(202, 255, 74, 0);
+  box-shadow: 0 0 0 rgba(225, 57, 70, 0);
 }
 
 .cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(202, 255, 74, 0.25);
+  box-shadow: 0 12px 32px rgba(225, 57, 70, 0.24);
 }

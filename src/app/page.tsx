@@ -93,7 +93,7 @@ const caseStudies = [
   {
     title: 'Invisalign',
     category: 'Creator Campaign · Super Bowl · WRTG',
-    image: '/images/clients/diana-flores.jpg',
+    image: '/images/clients/diana-flores.webp',
     video: '',
     challenge: 'Invisalign needed to connect with younger women in a way that felt personal, not clinical, and tie the brand to moments of confidence.',
     solution: 'We activated a creator-led campaign around the Super Bowl and WRTG, celebrating Diana Flores and real "confidence clicked in" moments through content, PR, and live experiences.',
@@ -129,10 +129,10 @@ const caseStudies = [
 ];
 
 const team = [
-  { name: 'Tish Galindo', role: 'CEO & Founder', image: '/images/team/tish.jpg' },
-  { name: 'Tamala Barksdale', role: 'Chief Strategy Officer', image: '/images/team/tamala.jpg' },
-  { name: 'Christopher Roberts', role: 'Managing Director', image: '/images/team/chris.jpg' },
-  { name: 'Yvette Villanueva', role: 'Sr. Dir. Growth', image: '/images/team/yvette.jpg' },
+  { name: 'Tish Galindo', role: 'CEO & Founder', image: '/images/team/tish.webp' },
+  { name: 'Tamala Barksdale', role: 'Chief Strategy Officer', image: '/images/team/tamala.webp' },
+  { name: 'Christopher Roberts', role: 'Managing Director', image: '/images/team/chris.webp' },
+  { name: 'Yvette Villanueva', role: 'Sr. Dir. Growth', image: '/images/team/yvette.webp' },
 ];
 
 export default function Home() {
@@ -170,12 +170,12 @@ export default function Home() {
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           navScrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.04)]'
+            ? 'bg-white/95 backdrop-blur-xl shadow-[0_1px_0_rgba(39,66,72,0.08)]'
             : 'bg-transparent'
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
-          <a href="#" className={`flex items-center transition-all duration-500 ${navScrolled ? 'text-black' : 'text-white'}`}>
+          <a href="#" className={`flex items-center transition-all duration-500 ${navScrolled ? 'text-charcoal' : 'text-white'}`}>
             <Image
               src="/madexus-logo.svg"
               alt="madeXus"
@@ -194,7 +194,7 @@ export default function Home() {
               <li key={label}>
                 <a
                   href={href}
-                  className={`text-[13px] uppercase tracking-[0.08em] font-medium transition-colors duration-500 ${navScrolled ? 'text-gray-500 hover:text-plum' : 'text-white/80 hover:text-white'}`}
+                  className={`text-[13px] uppercase tracking-[0.08em] font-medium transition-colors duration-500 ${navScrolled ? 'text-muted hover:text-coral-red' : 'text-white/80 hover:text-white'}`}
                 >
                   {label}
                 </a>
@@ -204,7 +204,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <a
               href="#contact"
-              className={`hidden md:inline-flex px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] transition-all duration-500 hover:-translate-y-0.5 ${navScrolled ? 'bg-black text-white hover:bg-black/85' : 'bg-white text-black hover:bg-white/90'}`}
+              className={`hidden md:inline-flex px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] transition-all duration-500 hover:-translate-y-0.5 ${navScrolled ? 'bg-coral-red text-white hover:bg-coral-red/85' : 'bg-white text-charcoal hover:bg-white/90'}`}
             >
               Work With Us
             </a>
@@ -230,7 +230,7 @@ export default function Home() {
           </div>
         </div>
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white/98 backdrop-blur-xl px-6 py-8 space-y-5 border-t border-black/[0.04]">
+          <div className="md:hidden bg-white/98 backdrop-blur-xl px-6 py-8 space-y-5 border-t border-charcoal/[0.04]">
             {[
               ['What We Do', '#offerings'],
               ['Work', '#work'],
@@ -241,7 +241,7 @@ export default function Home() {
                 key={label}
                 href={href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block font-display text-2xl text-gray-800 hover:text-plum transition-colors"
+                className="block font-display text-2xl text-charcoal hover:text-coral-red transition-colors"
               >
                 {label}
               </a>
@@ -253,7 +253,7 @@ export default function Home() {
       {/* ─── SECTION 1: HERO — MAGAZINE COVER ─── */}
       <section
         ref={heroRef}
-        className="relative h-screen flex items-center justify-center overflow-hidden bg-black"
+        className="relative h-screen flex items-center justify-center overflow-hidden bg-coral-red"
         id="hero"
       >
         {/* Full-bleed hero image with parallax */}
@@ -262,21 +262,21 @@ export default function Home() {
           style={{ transform: `translateY(${heroParallax}px)` }}
         >
           <Image
-            src="/images/hero-firefly.png"
+            src="/images/hero-firefly-opt.webp"
             alt="MXU Hero"
             fill
             className="object-cover object-center scale-105"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-coral-red/40" />
         </div>
 
         {/* X overlay — single X, locked aspect ratio, stops above ticker */}
         <div className="absolute inset-0 bottom-[48px] pointer-events-none">
           <div className="relative w-full h-full opacity-[0.45]">
             <Image
-              src="/images/x-graphics/x-wine.png"
+              src="/images/x-graphics/x-wine.webp"
               alt=""
               fill
               className="object-cover object-left"
@@ -289,7 +289,7 @@ export default function Home() {
         {/* Hero content */}
         <div className="relative z-10 text-center text-white px-6 max-w-[1200px] mx-auto">
           <div className="hero-reveal hero-reveal-delay-1">
-            <span className="inline-block text-[11px] md:text-[13px] font-semibold uppercase tracking-[0.35em] text-neon mb-8 md:mb-10">
+            <span className="inline-block text-[11px] md:text-[13px] font-semibold uppercase tracking-[0.35em] text-coral-red mb-8 md:mb-10">
               We Are the Insiders
             </span>
           </div>
@@ -302,7 +302,7 @@ export default function Home() {
           <div className="hero-reveal hero-reveal-delay-4 flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#contact"
-              className="bg-neon text-gray-900 px-10 py-4 text-sm font-bold uppercase tracking-[0.06em] hover:bg-neon-dark transition-all duration-300 hover:-translate-y-0.5 inline-block"
+              className="bg-coral-red text-white px-10 py-4 text-sm font-bold uppercase tracking-[0.06em] hover:bg-coral-hover transition-all duration-300 hover:-translate-y-0.5 inline-block"
             >
               Work With Us
             </a>
@@ -311,7 +311,7 @@ export default function Home() {
         </div>
 
         {/* Ticker carousel — above the fold */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 bg-plum py-4 overflow-hidden">
+        <div className="absolute bottom-0 left-0 right-0 z-10 bg-coral-red py-4 overflow-hidden">
           <div className="ticker-scroll whitespace-nowrap inline-flex">
             {[...Array(3)].map((_, i) => (
               <span key={i} className="inline-flex items-center">
@@ -331,25 +331,25 @@ export default function Home() {
       <section className="py-32 md:py-48 px-6 md:px-12 bg-white relative overflow-hidden" id="positioning">
         {/* Floating parallax images — left side */}
         <div className="hidden lg:block absolute left-[-60px] xl:left-[-20px] top-[10%] w-[260px] pointer-events-none" style={{ transform: `translateY(${(scrollY - 800) * -0.12}px) rotate(-6deg)` }}>
-          <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-black/5" style={{ transform: 'perspective(800px) rotateY(8deg) rotateX(-3deg)' }}>
+          <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-charcoal/5" style={{ transform: 'perspective(800px) rotateY(8deg) rotateX(-3deg)' }}>
             <Image src="/images/clients/invisalign-photo.webp" alt="" width={520} height={390} className="w-full h-auto" />
           </div>
         </div>
         <div className="hidden lg:block absolute left-[40px] xl:left-[80px] top-[60%] w-[200px] pointer-events-none" style={{ transform: `translateY(${(scrollY - 800) * -0.08}px) rotate(4deg)` }}>
-          <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-black/5" style={{ transform: 'perspective(800px) rotateY(12deg) rotateX(2deg)' }}>
+          <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-charcoal/5" style={{ transform: 'perspective(800px) rotateY(12deg) rotateX(2deg)' }}>
             <Image src="/images/clients/kindli.webp" alt="" width={400} height={500} className="w-full h-auto" />
           </div>
         </div>
 
         {/* Floating parallax images — right side */}
         <div className="hidden lg:block absolute right-[-40px] xl:right-[0px] top-[15%] w-[280px] pointer-events-none" style={{ transform: `translateY(${(scrollY - 800) * -0.1}px) rotate(5deg)` }}>
-          <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-black/5" style={{ transform: 'perspective(800px) rotateY(-10deg) rotateX(-2deg)' }}>
+          <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-charcoal/5" style={{ transform: 'perspective(800px) rotateY(-10deg) rotateX(-2deg)' }}>
             <Image src="/images/clients/att.webp" alt="" width={440} height={330} className="w-full h-auto" />
           </div>
         </div>
         <div className="hidden lg:block absolute right-[50px] xl:right-[90px] bottom-[8%] w-[300px] pointer-events-none" style={{ transform: `translateY(${(scrollY - 800) * -0.15}px) rotate(-3deg)` }}>
-          <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-black/5" style={{ transform: 'perspective(800px) rotateY(-8deg) rotateX(4deg)' }}>
-            <Image src="/images/clients/diana-flores.jpg" alt="" width={480} height={360} className="w-full h-auto" />
+          <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-charcoal/5" style={{ transform: 'perspective(800px) rotateY(-8deg) rotateX(4deg)' }}>
+            <Image src="/images/clients/diana-flores.webp" alt="" width={480} height={360} className="w-full h-auto" />
           </div>
         </div>
 
@@ -361,7 +361,7 @@ export default function Home() {
             <span className="pill-highlight">women&apos;s culture</span>{' '}
              and we help brands show up authentically.
           </h2>
-          <p className="text-black/50 text-lg md:text-xl leading-relaxed max-w-[640px] mx-auto fade-up">
+          <p className="text-charcoal/50 text-lg md:text-xl leading-relaxed max-w-[640px] mx-auto fade-up">
             Women&apos;s fandoms are the fastest-growing force in sport, entertainment, and brand culture. We help brands participate with them. Intelligently and at scale.
           </p>
         </div>
@@ -373,10 +373,10 @@ export default function Home() {
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-20 fade-up">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-plum mb-4 block">
+              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-coral-red mb-4 block">
                 What We Do
               </span>
-              <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] tracking-tight leading-[1.1] text-black max-w-xl">
+              <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] tracking-tight leading-[1.1] text-charcoal max-w-xl">
                 Five ways we connect brands to the culture women are building.
               </h2>
             </div>
@@ -390,26 +390,26 @@ export default function Home() {
                 onClick={() => openModal(o.title)}
                 className="fade-up w-full text-left group cursor-pointer"
               >
-                <div className="relative border border-white/[0.08] bg-white p-8 md:p-10 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white hover:border-black/[0.12] hover:shadow-xl">
+                <div className="relative border border-white/[0.08] bg-white p-8 md:p-10 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white hover:border-charcoal/[0.12] hover:shadow-xl">
                   {/* Top accent line */}
-                  <div className="absolute top-0 left-0 h-[2px] bg-plum w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                  <div className="absolute top-0 left-0 h-[2px] bg-coral-red w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
 
                   <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
                     {/* Number */}
                     <div className="flex-shrink-0 w-16">
-                      <span className="font-display text-[2.5rem] font-black text-black/[0.06] group-hover:text-plum/20 transition-colors duration-700 leading-none">
+                      <span className="font-display text-[2.5rem] font-black text-charcoal/[0.06] group-hover:text-coral-red/20 transition-colors duration-700 leading-none">
                         {o.num}
                       </span>
                     </div>
 
                     {/* Title + Tags */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-display text-lg md:text-xl text-black group-hover:text-plum transition-colors duration-500 mb-2 leading-tight">
+                      <h3 className="font-display text-lg md:text-xl text-charcoal group-hover:text-coral-red transition-colors duration-500 mb-2 leading-tight">
                         {o.title}
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {o.tags.map((tag) => (
-                          <span key={tag} className="text-[9px] font-semibold uppercase tracking-[0.12em] px-3 py-1 bg-black/[0.04] text-black/40 rounded-sm select-none">
+                          <span key={tag} className="text-[9px] font-semibold uppercase tracking-[0.12em] px-3 py-1 bg-coral-red/[0.04] text-charcoal/40 rounded-sm select-none">
                             {tag}
                           </span>
                         ))}
@@ -418,14 +418,14 @@ export default function Home() {
 
                     {/* Description */}
                     <div className="flex-1 min-w-0 hidden lg:block">
-                      <p className="text-[13px] text-black/40 group-hover:text-black/60 leading-relaxed transition-colors duration-500">
+                      <p className="text-[13px] text-charcoal/40 group-hover:text-charcoal/60 leading-relaxed transition-colors duration-500">
                         {o.desc}
                       </p>
                     </div>
 
                     {/* Arrow */}
-                    <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-black/[0.08] group-hover:border-plum group-hover:bg-plum transition-all duration-500">
-                      <svg className="w-4 h-4 text-black/20 group-hover:text-white transition-colors duration-500 transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-charcoal/[0.08] group-hover:border-coral-red group-hover:bg-coral-red transition-all duration-500">
+                      <svg className="w-4 h-4 text-charcoal/20 group-hover:text-white transition-colors duration-500 transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="square" d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
                     </div>
@@ -444,14 +444,14 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-end justify-between mb-16 fade-up">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-plum mb-4 block">
+              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-coral-red mb-4 block">
                 Portfolio
               </span>
               <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] tracking-tight leading-[1.05]">
                 Selected Work
               </h2>
             </div>
-            <a href="#" className="text-plum text-[13px] font-bold uppercase tracking-[0.1em] hidden sm:block hover:text-plum-light transition-colors">
+            <a href="#" className="text-coral-red text-[13px] font-bold uppercase tracking-[0.1em] hidden sm:block hover:text-coral-hover transition-colors">
               View All &rarr;
             </a>
           </div>
@@ -472,18 +472,18 @@ export default function Home() {
                     fill
                     className="object-cover transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-coral-red/0 group-hover:bg-coral-red/15 transition-colors duration-500" />
                   {/* View overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="w-14 h-14 bg-white/90 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                      <svg className="w-5 h-5 text-plum" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <svg className="w-5 h-5 text-coral-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="square" d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
                     </div>
                   </div>
                 </div>
-                <h3 className="font-display text-lg mb-1 group-hover:text-plum transition-colors duration-300">{study.title}</h3>
-                <p className="text-sm text-black/40 tracking-wide">{study.category}</p>
+                <h3 className="font-display text-lg mb-1 group-hover:text-coral-red transition-colors duration-300">{study.title}</h3>
+                <p className="text-sm text-charcoal/40 tracking-wide">{study.category}</p>
               </div>
             ))}
           </div>
@@ -491,9 +491,9 @@ export default function Home() {
       </section>
 
       {/* ─── SECTION 6: BRAND PARTNERS — INFINITE MARQUEE ─── */}
-      <section className="py-24 md:py-32 bg-white border-y border-black/[0.04] overflow-hidden">
+      <section className="py-24 md:py-32 bg-white border-y border-charcoal/[0.04] overflow-hidden">
         <div className="text-center mb-14 px-6">
-          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-gray-400 block fade-up">
+          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-muted block fade-up">
             Brands We&apos;ve Partnered With
           </span>
         </div>
@@ -525,18 +525,18 @@ export default function Home() {
       </section>
 
       {/* ─── SECTION 7: ABOUT US ─── */}
-      <section className="py-32 md:py-44 px-6 md:px-12 bg-[#530B39] text-white" id="about">
+      <section className="py-32 md:py-44 px-6 md:px-12 bg-white text-charcoal" id="about">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <div className="fade-up">
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-neon mb-4 block">
+              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-coral-red mb-4 block">
                 About Us
               </span>
               <h2 className="font-display text-[clamp(1.8rem,3.5vw,3rem)] leading-[1.05] tracking-tight mb-6">
                 Insiders.
               </h2>
               <div className="editorial-line mb-8" />
-              <div className="space-y-5 text-white/60 leading-relaxed text-base md:text-lg">
+              <div className="space-y-5 text-charcoal/60 leading-relaxed text-base md:text-lg">
                 <p>
                   madeXus is a culture-first creative agency built on a simple belief: brands win when they participate in culture alongside the people who shape it.
                 </p>
@@ -558,10 +558,10 @@ export default function Home() {
                       fill
                       className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-plum/10 group-hover:bg-transparent transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-coral-red/10 group-hover:bg-transparent transition-colors duration-500" />
                     {/* Name overlay at bottom */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                      <h4 className="font-display text-sm md:text-[15px] text-white leading-tight">{member.name}</h4>
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-charcoal/65 to-transparent">
+                      <h3 className="font-display text-sm md:text-[15px] text-white leading-tight">{member.name}</h3>
                       <p className="text-[10px] text-white/60 tracking-[0.08em] uppercase">{member.role}</p>
                     </div>
                   </div>
@@ -574,7 +574,7 @@ export default function Home() {
 
       {/* ─── SECTION 8: CTA / CONTACT ─── */}
       <section
-        className="py-36 md:py-52 px-6 md:px-12 bg-light-gray text-black text-center relative overflow-hidden"
+        className="py-36 md:py-52 px-6 md:px-12 bg-light-gray text-charcoal text-center relative overflow-hidden"
         id="contact"
       >
         <div className="relative z-10 max-w-[700px] mx-auto">
@@ -584,7 +584,7 @@ export default function Home() {
           <div className="mb-12" />
           <a
             href="mailto:yvette@madexus.com"
-            className="inline-flex bg-neon text-gray-900 px-12 py-5 text-sm font-bold uppercase tracking-[0.08em] hover:bg-neon-dark cta-btn fade-up"
+            className="inline-flex bg-coral-red text-white px-12 py-5 text-sm font-bold uppercase tracking-[0.08em] hover:bg-coral-hover cta-btn fade-up"
           >
             Get In Touch
           </a>
@@ -592,34 +592,34 @@ export default function Home() {
       </section>
 
       {/* ─── FOOTER ─── */}
-      <footer className="bg-[#530B39] text-white pt-20 pb-8 px-6 md:px-12">
+      <footer className="bg-white text-charcoal pt-20 pb-8 px-6 md:px-12">
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
             <div className="col-span-2 md:col-span-1">
-              <div className="text-white mb-4">
+              <div className="text-charcoal mb-4">
                 <Image
                   src="/madexus-logo.svg"
                   alt="madeXus"
                   width={120}
                   height={48}
-                  className="h-8 w-auto brightness-0 invert"
+                  className="h-8 w-auto"
                 />
               </div>
-              <p className="text-sm text-white/40 leading-relaxed">
+              <p className="text-sm text-charcoal/60 leading-relaxed">
                 Culture. Women. Sports.<br />
                 The cultural intelligence agency.
               </p>
             </div>
             <div>
-              <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/30 mb-5">What We Do</h4>
+              <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-5">What We Do</div>
               <div className="space-y-3">
                 {['Media', 'Fandom Marketing', 'Creator Ad Network', 'Women Raise the Game', 'Briefs & RFP'].map((item) => (
-                  <a key={item} href="#offerings" className="block text-sm text-white/50 hover:text-neon transition-colors">{item}</a>
+                  <a key={item} href="#offerings" className="block text-sm text-charcoal/70 hover:text-coral-red transition-colors">{item}</a>
                 ))}
               </div>
             </div>
             <div>
-              <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/30 mb-5">Company</h4>
+              <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-5">Company</div>
               <div className="space-y-3">
                 {[
                   ['About', '#about'],
@@ -627,25 +627,28 @@ export default function Home() {
                   ['Careers', '#'],
                   ['Contact', '#contact'],
                 ].map(([label, href]) => (
-                  <a key={label} href={href} className="block text-sm text-white/50 hover:text-neon transition-colors">{label}</a>
+                  <a key={label} href={href} className="block text-sm text-charcoal/70 hover:text-coral-red transition-colors">{label}</a>
                 ))}
               </div>
             </div>
             <div>
-              <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/30 mb-5">Connect</h4>
+              <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted mb-5">Connect</div>
               <div className="space-y-3">
                 {[
                   ['Instagram', 'https://www.instagram.com/itsmadexus/'],
                   ['LinkedIn', 'https://www.linkedin.com/company/madexus/'],
                 ].map(([label, href]) => (
-                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="block text-sm text-white/50 hover:text-neon transition-colors">{label}</a>
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="block text-sm text-charcoal/70 hover:text-coral-red transition-colors">{label}</a>
                 ))}
               </div>
             </div>
           </div>
-          <div className="border-t border-white/[0.08] pt-6 flex flex-col sm:flex-row justify-between text-[11px] text-white/30 tracking-wide">
+          <div className="border-t border-charcoal/[0.08] pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-muted tracking-wide">
             <span>&copy; 2026 madeXus. All rights reserved.</span>
-            <span>Los Angeles &middot; New York</span>
+            <div className="flex items-center gap-4 mt-2 sm:mt-0">
+              <button type="button" data-cc="show-preferencesModal" className="hover:text-coral-red transition-colors cursor-pointer">Manage Cookies</button>
+              <span>Los Angeles &middot; New York</span>
+            </div>
           </div>
         </div>
       </footer>
