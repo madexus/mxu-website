@@ -174,27 +174,51 @@ export default function Home() {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 xl:px-12 grid grid-cols-[auto_1fr_auto] items-center h-[72px] md:h-24 gap-4">
           <a href="#" className={`flex items-center transition-all duration-500 ${navScrolled ? 'text-charcoal' : 'text-white'}`}>
             <Image
               src="/madexus-logo.svg"
               alt="madeXus"
-              width={140}
+              width={190}
               height={56}
-              className={`h-7 md:h-9 w-auto transition-all duration-500 ${navScrolled ? '' : 'brightness-0 invert'}`}
+              className={`h-9 md:h-12 w-auto transition-all duration-500 ${navScrolled ? '' : 'brightness-0 invert'}`}
               priority
             />
           </a>
-          <ul className="hidden md:flex items-center gap-10">
+          <ul className="hidden md:flex items-center justify-center gap-3">
+            <li className="relative group">
+              <a
+                href="#offerings"
+                className={`inline-flex items-center px-5 py-2.5 rounded-full text-[12px] uppercase font-semibold transition-all duration-500 ${navScrolled ? 'bg-charcoal/[0.05] text-charcoal hover:bg-coral-red hover:text-white' : 'bg-white/12 text-white hover:bg-white hover:text-coral-red'}`}
+              >
+                What We Do
+              </a>
+              <div className="absolute left-1/2 top-full pt-3 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                <div className="min-w-[240px] bg-white text-charcoal shadow-2xl ring-1 ring-charcoal/10 py-3">
+                  {[
+                    ['Women Raise the Game', '#offerings'],
+                    ['Creator Ad Network', '#offerings'],
+                  ].map(([label, href]) => (
+                    <a
+                      key={label}
+                      href={href}
+                      className="block px-5 py-3 text-[12px] uppercase font-semibold hover:bg-coral-red hover:text-white transition-colors"
+                    >
+                      {label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </li>
             {[
-              ['What We Do', '#offerings'],
               ['Work', '#work'],
-              ['About', '#about'],
+              ['Insider', '#positioning'],
+              ['About Her', '#about'],
             ].map(([label, href]) => (
               <li key={label}>
                 <a
                   href={href}
-                  className={`text-[13px] uppercase tracking-[0.08em] font-medium transition-colors duration-500 ${navScrolled ? 'text-muted hover:text-coral-red' : 'text-white/80 hover:text-white'}`}
+                  className={`inline-flex items-center px-5 py-2.5 rounded-full text-[12px] uppercase font-semibold transition-all duration-500 ${navScrolled ? 'bg-charcoal/[0.05] text-charcoal hover:bg-coral-red hover:text-white' : 'bg-white/12 text-white hover:bg-white hover:text-coral-red'}`}
                 >
                   {label}
                 </a>
@@ -204,12 +228,12 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <a
               href="#contact"
-              className={`hidden md:inline-flex px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.06em] transition-all duration-500 hover:-translate-y-0.5 ${navScrolled ? 'bg-coral-red text-white hover:bg-coral-red/85' : 'bg-white text-charcoal hover:bg-white/90'}`}
+              className={`hidden md:inline-flex rounded-full px-7 py-3 text-[13px] font-bold uppercase transition-all duration-500 hover:-translate-y-0.5 ${navScrolled ? 'bg-coral-red text-white hover:bg-coral-red/85' : 'bg-white text-coral-red hover:bg-white/90'}`}
             >
               Work With Us
             </a>
             <button
-              className="md:hidden p-2"
+              className={`md:hidden p-2 transition-colors ${navScrolled || mobileMenuOpen ? 'text-charcoal' : 'text-white'}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -233,9 +257,12 @@ export default function Home() {
           <div className="md:hidden bg-white/98 backdrop-blur-xl px-6 py-8 space-y-5 border-t border-charcoal/[0.04]">
             {[
               ['What We Do', '#offerings'],
+              ['Women Raise the Game', '#offerings'],
+              ['Creator Ad Network', '#offerings'],
               ['Work', '#work'],
-              ['About', '#about'],
-              ['Contact', '#contact'],
+              ['Insider', '#positioning'],
+              ['About Her', '#about'],
+              ['Work With Us', '#contact'],
             ].map(([label, href]) => (
               <a
                 key={label}
@@ -253,7 +280,7 @@ export default function Home() {
       {/* ─── SECTION 1: HERO — MAGAZINE COVER ─── */}
       <section
         ref={heroRef}
-        className="relative h-screen flex items-center justify-center overflow-hidden bg-coral-red"
+        className="relative h-screen min-h-[720px] flex items-center overflow-hidden bg-coral-red"
         id="hero"
       >
         {/* Full-bleed hero image with parallax */}
@@ -262,47 +289,29 @@ export default function Home() {
           style={{ transform: `translateY(${heroParallax}px)` }}
         >
           <Image
-            src="/images/hero-firefly-opt.webp"
+            src="/images/madexus_hero_clean.png"
             alt="MXU Hero"
             fill
             className="object-cover object-center scale-105"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-coral-red/40" />
-        </div>
-
-        {/* X overlay — single X, locked aspect ratio, stops above ticker */}
-        <div className="absolute inset-0 bottom-[48px] pointer-events-none">
-          <div className="relative w-full h-full opacity-[0.45]">
-            <Image
-              src="/images/x-graphics/x-wine.webp"
-              alt=""
-              fill
-              className="object-cover object-left"
-              style={{ objectPosition: 'left center' }}
-              aria-hidden="true"
-            />
-          </div>
         </div>
 
         {/* Hero content */}
-        <div className="relative z-10 text-center text-white px-6 max-w-[1200px] mx-auto">
+        <div className="relative z-10 text-left text-white px-6 md:px-12 max-w-[1400px] w-full mx-auto pt-20">
           <div className="hero-reveal hero-reveal-delay-1">
-            <span className="inline-block text-[11px] md:text-[13px] font-semibold uppercase tracking-[0.35em] text-coral-red mb-8 md:mb-10">
+            <span className="inline-block text-[11px] md:text-[13px] font-light uppercase tracking-[0.32em] text-white mb-7 md:mb-9">
               We Are the Insiders
             </span>
           </div>
-          <h1 className="font-display hero-reveal hero-reveal-delay-2 text-[clamp(2.8rem,8vw,6rem)] leading-[1.05] tracking-tight mb-6">
-            Culture. Women. Sports.
+          <h1 className="font-display hero-reveal hero-reveal-delay-2 text-[clamp(3.4rem,8vw,7rem)] leading-[0.9] max-w-[760px] mb-9">
+            Culture. Women. Sport.
           </h1>
-          <p className="hero-reveal hero-reveal-delay-3 text-lg md:text-xl text-white/70 max-w-[560px] mx-auto mb-10 md:mb-14 leading-relaxed">
-            madeXus is the cultural intelligence agency that connects brands authentically with women&apos;s fandoms. Strategy, media, creators, and activations.
-          </p>
-          <div className="hero-reveal hero-reveal-delay-4 flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="hero-reveal hero-reveal-delay-3 flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className="bg-coral-red text-white px-10 py-4 text-sm font-bold uppercase tracking-[0.06em] hover:bg-coral-hover transition-all duration-300 hover:-translate-y-0.5 inline-block"
+              className="bg-white text-coral-red px-10 py-4 text-sm font-bold uppercase hover:bg-white/90 transition-all duration-300 hover:-translate-y-0.5 inline-block"
             >
               Work With Us
             </a>
