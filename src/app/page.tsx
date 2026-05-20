@@ -303,6 +303,21 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="bg-coral-red py-4 overflow-hidden">
+        <div className="ticker-scroll whitespace-nowrap inline-flex">
+          {[...Array(3)].map((_, i) => (
+            <span key={i} className="inline-flex items-center">
+              {['Media', 'Fandom Marketing', 'Creator Ad Network', 'Culture | Women | Sport'].map((item) => (
+                <span key={`${i}-${item}`} className="inline-flex items-center">
+                  <span className="mx-8 text-[11px] font-light uppercase tracking-[0.2em] text-white">{item}</span>
+                  <span className="text-sm text-white">&#x2726;</span>
+                </span>
+              ))}
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* ─── SECTION 2: POSITIONING ─── */}
       <section className="py-32 md:py-48 px-6 md:px-12 bg-white relative overflow-hidden" id="positioning">
         {/* Floating parallax images — left side */}
