@@ -296,19 +296,13 @@ export default function Home() {
 
         {/* Hero content */}
         <div className="relative z-10 flex min-h-screen w-full max-w-[1400px] items-end mx-auto px-6 pb-16 pt-28 text-left text-white md:px-12 md:pb-24 md:pt-36">
-          <div className="hero-reveal hero-reveal-delay-1 max-w-[900px] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
-            <p className="mb-5 font-light text-[clamp(0.72rem,1.1vw,0.95rem)] uppercase tracking-[0.34em] md:mb-7">
+          <div className="hero-reveal hero-reveal-delay-1 max-w-[780px] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
+            <p className="mb-3 font-light text-[clamp(0.72rem,1.1vw,0.95rem)] uppercase tracking-[0.34em] md:mb-4">
               WE ARE THE INSIDERS
             </p>
-            <h1 className="font-display text-[clamp(3.1rem,7.4vw,8rem)] leading-[0.9] text-white">
+            <h1 className="font-display text-[clamp(2.75rem,5.9vw,6.3rem)] leading-[0.92] text-white">
               CULTURE. WOMEN. SPORT.
             </h1>
-            <a
-              href="#contact"
-              className="mt-8 inline-flex rounded-full bg-white px-8 py-3.5 text-[12px] font-bold uppercase tracking-[0.08em] text-coral-red transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90 md:mt-10 md:px-10 md:py-4"
-            >
-              Work With Us
-            </a>
           </div>
         </div>
       </section>
