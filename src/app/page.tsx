@@ -296,13 +296,9 @@ export default function Home() {
 
         {/* Hero content */}
         <div className="relative z-10 flex min-h-screen w-full max-w-[1400px] items-end mx-auto px-6 pb-16 pt-28 text-left text-white md:px-12 md:pb-24 md:pt-36">
-          <div className="hero-reveal hero-reveal-delay-1 max-w-[780px] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
-            <p className="mb-3 font-light text-[clamp(0.72rem,1.1vw,0.95rem)] uppercase tracking-[0.34em] md:mb-4">
-              WE ARE THE INSIDERS
-            </p>
-            <h1 className="font-display text-[clamp(2.75rem,5.9vw,6.3rem)] leading-[0.92] text-white">
-              CULTURE. WOMEN. SPORT.
-            </h1>
+          <div className="hero-reveal hero-reveal-delay-1 max-w-[720px] space-y-1 font-light text-[32px] leading-none text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
+            <p className="whitespace-nowrap">INSIDERS for</p>
+            <p className="whitespace-nowrap">Culture. Women. Sport.</p>
           </div>
         </div>
       </section>
