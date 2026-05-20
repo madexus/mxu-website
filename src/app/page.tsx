@@ -295,26 +295,20 @@ export default function Home() {
         </div>
 
         {/* Hero content */}
-        <div className="relative z-10 flex min-h-[calc(100vh-96px)] w-full max-w-[1400px] items-end mx-auto px-6 pb-28 pt-24 text-left text-white md:px-12 md:pb-36 md:pt-32">
-          <div className="hero-reveal hero-reveal-delay-1 max-w-[680px] font-bold text-[clamp(2.2rem,4.25vw,4.9rem)] leading-[0.92] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.16)]">
-            <p className="whitespace-nowrap uppercase tracking-[0.14em]">INSIDERS FOR</p>
-            <p className="whitespace-nowrap">Culture. Women. Sport.</p>
-          </div>
-        </div>
-
-        {/* Ticker carousel — above the fold */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 bg-coral-red py-4 overflow-hidden">
-          <div className="ticker-scroll whitespace-nowrap inline-flex">
-            {[...Array(3)].map((_, i) => (
-              <span key={i} className="inline-flex items-center">
-                {['Media', 'Fandom Marketing', 'Creator Ad Network', 'Culture | Women | Sport'].map((item) => (
-                  <span key={`${i}-${item}`} className="inline-flex items-center">
-                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/80 mx-8">{item}</span>
-                    <span className="text-white text-sm">&#x2726;</span>
-                  </span>
-                ))}
-              </span>
-            ))}
+        <div className="relative z-10 flex min-h-screen w-full max-w-[1400px] items-end mx-auto px-6 pb-16 pt-28 text-left text-white md:px-12 md:pb-24 md:pt-36">
+          <div className="hero-reveal hero-reveal-delay-1 max-w-[900px] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
+            <p className="mb-5 font-light text-[clamp(0.72rem,1.1vw,0.95rem)] uppercase tracking-[0.34em] md:mb-7">
+              WE ARE THE INSIDERS
+            </p>
+            <h1 className="font-display text-[clamp(3.1rem,7.4vw,8rem)] leading-[0.9] text-white">
+              CULTURE. WOMEN. SPORT.
+            </h1>
+            <a
+              href="#contact"
+              className="mt-8 inline-flex rounded-full bg-white px-8 py-3.5 text-[12px] font-bold uppercase tracking-[0.08em] text-coral-red transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90 md:mt-10 md:px-10 md:py-4"
+            >
+              Work With Us
+            </a>
           </div>
         </div>
       </section>
