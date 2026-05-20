@@ -175,9 +175,9 @@ export default function Home() {
             <Image
               src="/madexus-logo.svg"
               alt="madeXus"
-              width={132}
-              height={39}
-              className="h-6 w-auto brightness-0 invert drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] md:h-7"
+              width={152}
+              height={45}
+              className="h-7 w-auto brightness-0 invert drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] md:h-8"
               priority
             />
           </a>
@@ -296,9 +296,9 @@ export default function Home() {
 
         {/* Hero content */}
         <div className="relative z-10 flex min-h-[calc(100vh-96px)] w-full max-w-[1400px] items-end mx-auto px-6 pb-28 pt-24 text-left text-white md:px-12 md:pb-36 md:pt-32">
-          <div className="hero-reveal hero-reveal-delay-1 max-w-[760px] font-bold text-[clamp(3rem,7vw,7.4rem)] leading-[0.9] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.16)]">
-            <p className="uppercase tracking-[0.12em]">INSIDERS FOR</p>
-            <p>Culture. Women. Sport.</p>
+          <div className="hero-reveal hero-reveal-delay-1 max-w-[680px] font-bold text-[clamp(2.2rem,4.25vw,4.9rem)] leading-[0.92] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.16)]">
+            <p className="whitespace-nowrap uppercase tracking-[0.14em]">INSIDERS FOR</p>
+            <p className="whitespace-nowrap">Culture. Women. Sport.</p>
           </div>
         </div>
 
