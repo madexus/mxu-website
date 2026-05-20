@@ -48,8 +48,9 @@ body {
 /* ─── Pill highlight treatment (brand guidelines p.26) ─── */
 .pill-highlight {
   display: inline;
-  padding: 4px 8px;
-  line-height: 1;
+  padding: 0 8px;
+  line-height: 0.9;
+  vertical-align: baseline;
   background: #E13946;
   color: #ffffff;
   box-decoration-break: clone;
