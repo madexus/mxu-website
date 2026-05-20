@@ -145,14 +145,18 @@ export default function Home() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<typeof caseStudies[number] | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [heroParallax, setHeroParallax] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
+  const [navOnLightSection, setNavOnLightSection] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setHeroParallax(window.scrollY * 0.35);
-      setScrollY(window.scrollY);
+      const positioningSection = document.getElementById('positioning');
+      setNavOnLightSection(
+        positioningSection ? window.scrollY >= positioningSection.offsetTop - 88 : false
+      );
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -172,20 +176,29 @@ export default function Home() {
             aria-label="madeXus home"
             className="flex items-center"
           >
-            <Image
-              src="/madexus-logo.svg"
-              alt="madeXus"
-              width={152}
-              height={45}
-              className="h-7 w-auto brightness-0 invert drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] md:h-8"
-              priority
+            <span
+              aria-hidden="true"
+              className="block h-7 w-[95px] drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] transition-colors duration-300 md:h-8 md:w-[108px]"
+              style={{
+                backgroundColor: navOnLightSection ? '#274248' : '#FFFFFF',
+                maskImage: 'url(/madexus-logo.svg)',
+                maskRepeat: 'no-repeat',
+                maskPosition: 'left center',
+                maskSize: 'contain',
+                WebkitMaskImage: 'url(/madexus-logo.svg)',
+                WebkitMaskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'left center',
+                WebkitMaskSize: 'contain',
+              }}
             />
           </a>
           <ul className="hidden md:flex items-center justify-center gap-6 lg:gap-8">
             <li className="relative group">
               <a
                 href="#offerings"
-                className="inline-flex items-center py-2 text-[12px] uppercase font-semibold text-white transition-colors duration-300 drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] hover:text-white/75"
+                className={`inline-flex items-center py-2 text-[12px] uppercase font-semibold transition-colors duration-300 drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] ${
+                  navOnLightSection ? 'text-charcoal hover:text-charcoal/70' : 'text-white hover:text-white/75'
+                }`}
               >
                 What We Do
               </a>
@@ -214,7 +227,9 @@ export default function Home() {
               <li key={label}>
                 <a
                   href={href}
-                  className="inline-flex items-center py-2 text-[12px] uppercase font-semibold text-white transition-colors duration-300 drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] hover:text-white/75"
+                  className={`inline-flex items-center py-2 text-[12px] uppercase font-semibold transition-colors duration-300 drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] ${
+                    navOnLightSection ? 'text-charcoal hover:text-charcoal/70' : 'text-white hover:text-white/75'
+                  }`}
                 >
                   {label}
                 </a>
@@ -229,7 +244,9 @@ export default function Home() {
               Work With Us
             </a>
             <button
-              className={`md:hidden justify-self-end p-2 transition-colors ${mobileMenuOpen ? 'text-charcoal' : 'text-white'}`}
+              className={`md:hidden justify-self-end p-2 transition-colors ${
+                mobileMenuOpen || navOnLightSection ? 'text-charcoal' : 'text-white'
+              }`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
