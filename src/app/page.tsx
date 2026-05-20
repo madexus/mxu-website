@@ -167,19 +167,26 @@ export default function Home() {
   return (
     <>
       {/* ─── NAVIGATION ─── */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-          navScrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-[0_1px_0_rgba(39,66,72,0.08)]'
-            : 'bg-transparent'
-        }`}
-      >
-        <div className="max-w-[1400px] mx-auto px-5 md:px-10 xl:px-12 grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center h-[72px] md:h-24 gap-4">
-          <ul className="hidden md:flex items-center justify-center gap-3">
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-transparent transition-all duration-500">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 xl:px-12 grid grid-cols-[1fr_auto] md:grid-cols-[auto_1fr_auto] items-center h-[72px] md:h-24 gap-4 md:gap-6">
+          <a
+            href="#"
+            aria-label="madeXus home"
+            className={`hidden md:flex items-center transition-all duration-500 ${navScrolled ? 'opacity-100 translate-y-0' : 'pointer-events-none opacity-0 -translate-y-1'}`}
+          >
+            <Image
+              src="/madexus-logo.svg"
+              alt="madeXus"
+              width={128}
+              height={38}
+              className="h-7 w-auto brightness-0 invert drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)]"
+            />
+          </a>
+          <ul className="hidden md:flex items-center justify-center gap-6 lg:gap-8">
             <li className="relative group">
               <a
                 href="#offerings"
-                className={`inline-flex items-center px-5 py-2.5 rounded-full text-[12px] uppercase font-semibold transition-all duration-500 ${navScrolled ? 'bg-charcoal/[0.05] text-charcoal hover:bg-coral-red hover:text-white' : 'bg-white/12 text-white hover:bg-white hover:text-coral-red'}`}
+                className="inline-flex items-center py-2 text-[12px] uppercase font-semibold text-white transition-colors duration-300 drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] hover:text-white/75"
               >
                 What We Do
               </a>
@@ -208,14 +215,14 @@ export default function Home() {
               <li key={label}>
                 <a
                   href={href}
-                  className={`inline-flex items-center px-5 py-2.5 rounded-full text-[12px] uppercase font-semibold transition-all duration-500 ${navScrolled ? 'bg-charcoal/[0.05] text-charcoal hover:bg-coral-red hover:text-white' : 'bg-white/12 text-white hover:bg-white hover:text-coral-red'}`}
+                  className="inline-flex items-center py-2 text-[12px] uppercase font-semibold text-white transition-colors duration-300 drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] hover:text-white/75"
                 >
                   {label}
                 </a>
               </li>
             ))}
           </ul>
-          <div className="flex items-center justify-end gap-4">
+          <div className="flex items-center justify-end gap-3">
             <a
               href="#contact"
               className="hidden md:inline-flex rounded-full bg-white px-7 py-3 text-[13px] font-bold uppercase text-coral-red transition-all duration-500 hover:-translate-y-0.5 hover:bg-white/90"
@@ -223,7 +230,7 @@ export default function Home() {
               Work With Us
             </a>
             <button
-              className={`md:hidden p-2 transition-colors ${navScrolled || mobileMenuOpen ? 'text-charcoal' : 'text-white'}`}
+              className={`md:hidden justify-self-end p-2 transition-colors ${mobileMenuOpen ? 'text-charcoal' : 'text-white'}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
