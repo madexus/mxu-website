@@ -174,17 +174,7 @@ export default function Home() {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-5 md:px-10 xl:px-12 grid grid-cols-[auto_1fr_auto] items-center h-[72px] md:h-24 gap-4">
-          <a href="#" className={`flex items-center transition-all duration-500 ${navScrolled ? 'text-charcoal' : 'text-white'}`}>
-            <Image
-              src="/madexus-logo.svg"
-              alt="madeXus"
-              width={190}
-              height={56}
-              className={`h-9 md:h-12 w-auto transition-all duration-500 ${navScrolled ? '' : 'brightness-0 invert'}`}
-              priority
-            />
-          </a>
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 xl:px-12 grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center h-[72px] md:h-24 gap-4">
           <ul className="hidden md:flex items-center justify-center gap-3">
             <li className="relative group">
               <a
@@ -225,10 +215,10 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-end gap-4">
             <a
               href="#contact"
-              className={`hidden md:inline-flex rounded-full px-7 py-3 text-[13px] font-bold uppercase transition-all duration-500 hover:-translate-y-0.5 ${navScrolled ? 'bg-coral-red text-white hover:bg-coral-red/85' : 'bg-white text-coral-red hover:bg-white/90'}`}
+              className="hidden md:inline-flex rounded-full bg-white px-7 py-3 text-[13px] font-bold uppercase text-coral-red transition-all duration-500 hover:-translate-y-0.5 hover:bg-white/90"
             >
               Work With Us
             </a>
@@ -299,14 +289,14 @@ export default function Home() {
         </div>
 
         {/* Hero content */}
-        <div className="relative z-10 text-left text-white px-6 md:px-12 max-w-[1400px] w-full mx-auto pt-24 md:pt-32">
-          <div className="hero-reveal hero-reveal-delay-1 max-w-[720px]">
+        <div className="relative z-10 -translate-y-10 md:-translate-y-14 text-left text-white px-6 md:px-12 max-w-[1400px] w-full mx-auto pt-24 md:pt-32">
+          <div className="hero-reveal hero-reveal-delay-1 max-w-[520px]">
             <Image
               src="/madexus-logo.svg"
               alt="madeXus"
-              width={620}
-              height={184}
-              className="w-[min(82vw,620px)] h-auto brightness-0 invert mb-8 md:mb-10"
+              width={520}
+              height={154}
+              className="w-[min(70vw,520px)] h-auto brightness-0 invert mb-8 md:mb-10"
               priority
             />
           </div>
