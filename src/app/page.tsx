@@ -295,8 +295,8 @@ export default function Home() {
         </div>
 
         {/* Hero content */}
-        <div className="relative z-10 flex min-h-screen w-full max-w-[1400px] items-center mx-auto px-6 pt-24 text-left text-white md:px-12 md:pt-32">
-          <div className="hero-reveal hero-reveal-delay-1 max-w-[900px] -translate-y-8 space-y-1 font-light text-[48px] leading-none text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
+        <div className="relative z-10 flex min-h-screen w-full max-w-[1400px] items-end mx-auto px-6 pb-15 text-left text-white md:px-[60px] md:pb-[60px]">
+          <div className="hero-reveal hero-reveal-delay-1 max-w-[900px] space-y-1 font-bold text-[48px] leading-none text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
             <p className="whitespace-nowrap">INSIDERS for</p>
             <p className="whitespace-nowrap">Culture. Women. Sport.</p>
           </div>
