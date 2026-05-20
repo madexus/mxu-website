@@ -145,14 +145,12 @@ export default function Home() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<typeof caseStudies[number] | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [heroParallax, setHeroParallax] = useState(0);
-  const [navScrolled, setNavScrolled] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setHeroParallax(window.scrollY * 0.35);
-      setNavScrolled(window.scrollY > 60);
       setScrollY(window.scrollY);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -168,18 +166,19 @@ export default function Home() {
     <>
       {/* ─── NAVIGATION ─── */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-transparent transition-all duration-500">
-        <div className="max-w-[1400px] mx-auto px-5 md:px-10 xl:px-12 grid grid-cols-[1fr_auto] md:grid-cols-[auto_1fr_auto] items-center h-[72px] md:h-24 gap-4 md:gap-6">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 xl:px-12 grid grid-cols-[auto_auto] md:grid-cols-[auto_1fr_auto] items-center justify-between h-[72px] md:h-24 gap-4 md:gap-6">
           <a
             href="#"
             aria-label="madeXus home"
-            className={`hidden md:flex items-center transition-all duration-500 ${navScrolled ? 'opacity-100 translate-y-0' : 'pointer-events-none opacity-0 -translate-y-1'}`}
+            className="flex items-center"
           >
             <Image
               src="/madexus-logo.svg"
               alt="madeXus"
-              width={128}
-              height={38}
-              className="h-7 w-auto brightness-0 invert drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)]"
+              width={132}
+              height={39}
+              className="h-6 w-auto brightness-0 invert drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] md:h-7"
+              priority
             />
           </a>
           <ul className="hidden md:flex items-center justify-center gap-6 lg:gap-8">
@@ -296,19 +295,9 @@ export default function Home() {
         </div>
 
         {/* Hero content */}
-        <div className="relative z-10 -translate-y-10 md:-translate-y-14 text-left text-white px-6 md:px-12 max-w-[1400px] w-full mx-auto pt-24 md:pt-32">
-          <div className="hero-reveal hero-reveal-delay-1 max-w-[520px]">
-            <Image
-              src="/madexus-logo.svg"
-              alt="madeXus"
-              width={520}
-              height={154}
-              className="w-[min(70vw,520px)] h-auto brightness-0 invert mb-8 md:mb-10"
-              priority
-            />
-          </div>
-          <div className="hero-reveal hero-reveal-delay-2 font-light text-[clamp(1.55rem,3.4vw,2.7rem)] leading-[1.05] text-white">
-            <p className="uppercase">INSIDERS for</p>
+        <div className="relative z-10 flex min-h-[calc(100vh-96px)] w-full max-w-[1400px] items-end mx-auto px-6 pb-28 pt-24 text-left text-white md:px-12 md:pb-36 md:pt-32">
+          <div className="hero-reveal hero-reveal-delay-1 max-w-[760px] font-bold text-[clamp(3rem,7vw,7.4rem)] leading-[0.9] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.16)]">
+            <p className="uppercase tracking-[0.12em]">INSIDERS FOR</p>
             <p>Culture. Women. Sport.</p>
           </div>
         </div>
