@@ -45,7 +45,7 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
       className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-coral-red/80 backdrop-blur-sm animate-[modalIn_0.3s_ease]" />
+      <div className="absolute inset-0 bg-black/75 animate-[modalIn_0.3s_ease]" />
       <div
         className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white animate-[modalIn_0.4s_cubic-bezier(0.16,1,0.3,1)]"
         onClick={(e) => e.stopPropagation()}
