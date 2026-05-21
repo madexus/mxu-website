@@ -10,32 +10,32 @@ import CaseStudyModal from '@/components/CaseStudyModal';
 const offerings = [
   {
     num: '01',
-    title: 'Media',
-    desc: 'Strategic media planning and buying that reaches women where they actually engage. Data-driven, culturally intelligent, fandom-first.',
+    title: 'Fandom Marketing Campaign',
+    desc: 'Strategic consultation and full campaign execution for brands ready to tap into women\'s fandoms. From insight to activation.',
     tags: ['Media Strategy', 'Planning & Buying'],
   },
   {
     num: '02',
-    title: 'Fandom Marketing Consultation & Campaign',
-    desc: 'Strategic consultation and full campaign execution for brands ready to tap into women\'s fandoms. From insight to activation.',
+    title: 'Creators & Proprietary Creator Ad Network',
+    desc: 'Our curated network of women-led creators who drive authentic brand conversations across sports, lifestyle, and culture.',
     tags: ['Strategy', 'Campaign', 'Cultural Intel'],
   },
   {
     num: '03',
-    title: 'Creators & Proprietary Creator Ad Network',
-    desc: 'Our curated network of women-led creators who drive authentic brand conversations across sports, lifestyle, and culture.',
+    title: 'Women Raise the Game',
+    desc: 'Our proprietary platform. A media brand, community, and cultural engine demonstrating how brands become part of women\'s sports culture.',
     tags: ['Creators', 'Brand Integration'],
   },
   {
     num: '04',
-    title: 'Women Raise the Game',
-    desc: 'Our proprietary platform. A media brand, community, and cultural engine demonstrating how brands become part of women\'s sports culture.',
-    tags: ['Platform', 'Community', 'Content'],
+    title: 'Culture, Women, Sport Briefs & RFPs',
+    desc: 'Brief and RFP responses for brands investing in the culture, women and sport. We love a challenge.',
+    tags: ['Platform', 'Content', 'Community'],
   },
   {
     num: '05',
-    title: 'Culture, Women, Sport — Briefs & RFPs',
-    desc: 'Full-service brief development and RFP response for brands investing in the women\'s sports and culture space.',
+    title: 'Media',
+    desc: 'Strategic media planning and buying that reaches women where they actually engage. Data-driven, culturally intelligent, fandom-first.',
     tags: ['Briefs & RFPs'],
   },
 ];
@@ -382,67 +382,42 @@ export default function Home() {
       </section>
 
       {/* ─── SECTION 3: OFFERINGS ─── */}
-      <section className="py-32 md:py-44 px-6 md:px-12 bg-light-gray relative overflow-hidden" id="offerings">
-        <div className="max-w-[1200px] mx-auto relative z-10">
+      <section className="py-28 md:py-36 px-6 md:px-12 bg-white relative overflow-hidden" id="offerings">
+        <div className="max-w-[1400px] mx-auto relative z-10">
           {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-20 fade-up">
-            <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-coral-red mb-4 block">
-                What We Do
-              </span>
-              <h2 className="font-display text-[clamp(1.8rem,4vw,3rem)] tracking-tight leading-[1.1] text-charcoal max-w-xl">
-                Five ways we connect brands to the culture women are building.
-              </h2>
-            </div>
+          <div className="mb-14 fade-up">
+            <span className="inline-flex border border-coral-red px-4 py-2 text-[11px] font-bold uppercase tracking-[0.25em] text-coral-red mb-5">
+              What We Do
+            </span>
+            <h2 className="text-[clamp(2rem,4vw,4rem)] font-bold tracking-tight leading-[1] text-charcoal max-w-4xl">
+              The engine behind the outcomes.
+            </h2>
           </div>
 
-          {/* Offerings — stacked editorial cards */}
-          <div className="space-y-3 stagger-children">
-            {offerings.map((o, idx) => (
+          {/* Offerings — side-by-side coral cards */}
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5 stagger-children">
+            {offerings.map((o) => (
               <button
                 key={o.num}
                 onClick={() => openModal(o.title)}
-                className="fade-up w-full text-left group cursor-pointer"
+                className="fade-up group min-h-[360px] cursor-pointer bg-coral-red p-6 text-left text-white transition-all duration-500 hover:-translate-y-1 hover:bg-coral-hover"
               >
-                <div className="relative border border-white/[0.08] bg-white p-8 md:p-10 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white hover:border-charcoal/[0.12] hover:shadow-xl">
-                  {/* Top accent line */}
-                  <div className="absolute top-0 left-0 h-[2px] bg-coral-red w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-
-                  <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-                    {/* Number */}
-                    <div className="flex-shrink-0 w-16">
-                      <span className="font-display text-[2.5rem] font-black text-charcoal/[0.06] group-hover:text-coral-red/20 transition-colors duration-700 leading-none">
-                        {o.num}
+                <div className="flex h-full flex-col">
+                  <span className="mb-12 self-end font-display text-[3rem] leading-none text-white/18 transition-colors duration-500 group-hover:text-white/25">
+                    {o.num}
+                  </span>
+                  <h3 className="mb-5 text-[1.1rem] font-bold leading-tight text-white">
+                    {o.title}
+                  </h3>
+                  <p className="mb-7 text-sm font-light leading-relaxed text-white/90">
+                    {o.desc}
+                  </p>
+                  <div className="mt-auto flex flex-wrap gap-2">
+                    {o.tags.map((tag) => (
+                      <span key={tag} className="rounded-full border border-white px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-white">
+                        {tag}
                       </span>
-                    </div>
-
-                    {/* Title + Tags */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-display text-lg md:text-xl text-charcoal group-hover:text-coral-red transition-colors duration-500 mb-2 leading-tight">
-                        {o.title}
-                      </h3>
-                      <div className="flex flex-wrap gap-2">
-                        {o.tags.map((tag) => (
-                          <span key={tag} className="text-[9px] font-semibold uppercase tracking-[0.12em] px-3 py-1 bg-coral-red/[0.04] text-charcoal/40 rounded-sm select-none">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <div className="flex-1 min-w-0 hidden lg:block">
-                      <p className="text-[13px] text-charcoal/40 group-hover:text-charcoal/60 leading-relaxed transition-colors duration-500">
-                        {o.desc}
-                      </p>
-                    </div>
-
-                    {/* Arrow */}
-                    <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center border border-charcoal/[0.08] group-hover:border-coral-red group-hover:bg-coral-red transition-all duration-500">
-                      <svg className="w-4 h-4 text-charcoal/20 group-hover:text-white transition-colors duration-500 transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="square" d="M5 12h14M13 6l6 6-6 6" />
-                      </svg>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </button>
