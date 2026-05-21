@@ -429,8 +429,8 @@ export default function Home() {
       {/* WRTG SECTION REMOVED PER FEEDBACK */}
 
       {/* ─── SECTION 5: SELECTED WORK ─── */}
-      <section className="py-32 md:py-40 px-6 md:px-12 bg-light-gray" id="work">
-        <div className="max-w-[1200px] mx-auto">
+      <section className="py-32 md:py-40 px-6 md:px-12 bg-white" id="work">
+        <div className="max-w-[1400px] mx-auto">
           <div className="flex items-end justify-between mb-16 fade-up">
             <div>
               <span className="mb-4 inline-flex bg-coral-red px-4 py-2 text-[11px] font-bold uppercase tracking-[0.25em] text-white">
@@ -444,7 +444,7 @@ export default function Home() {
               View All &rarr;
             </a>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 stagger-children">
             {caseStudies.map((study) => (
               <div
                 key={study.title}
@@ -454,25 +454,23 @@ export default function Home() {
                   setCaseStudyModalOpen(true);
                 }}
               >
-                <div className="aspect-[4/3] relative overflow-hidden mb-5 bg-light-gray">
+                <div className="aspect-[4/5] relative overflow-hidden bg-light-gray">
                   <Image
                     src={study.image}
                     alt={study.title}
                     fill
-                    className="object-cover transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-coral-red/0 group-hover:bg-coral-red/15 transition-colors duration-500" />
-                  {/* View overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="w-14 h-14 bg-white/90 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                      <svg className="w-5 h-5 text-coral-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="square" d="M5 12h14M13 6l6 6-6 6" />
-                      </svg>
-                    </div>
+                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/45" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <p className="mb-2 text-[11px] font-light uppercase tracking-[0.18em] text-white/85">
+                      {study.category}
+                    </p>
+                    <h3 className="text-2xl font-bold leading-tight text-white md:text-3xl">
+                      {study.title}
+                    </h3>
                   </div>
                 </div>
-                <h3 className="font-display text-lg mb-1 text-charcoal group-hover:text-coral-red transition-colors duration-300">{study.title}</h3>
-                <p className="text-sm text-charcoal/40 tracking-wide">{study.category}</p>
               </div>
             ))}
           </div>
