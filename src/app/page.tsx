@@ -444,7 +444,7 @@ export default function Home() {
               View All &rarr;
             </a>
           </div>
-          <div className="grid grid-cols-1 gap-2 md:grid-cols-2 stagger-children">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 stagger-children">
             {caseStudies.map((study) => (
               <div
                 key={study.title}
@@ -454,12 +454,12 @@ export default function Home() {
                   setCaseStudyModalOpen(true);
                 }}
               >
-                <div className="relative aspect-video max-h-[50vh] overflow-hidden bg-light-gray">
+                <div className="aspect-[4/5] relative overflow-hidden bg-light-gray">
                   <Image
                     src={study.image}
                     alt={study.title}
                     fill
-                    className="object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/45" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
