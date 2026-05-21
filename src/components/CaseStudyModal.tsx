@@ -73,26 +73,26 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
         </div>
 
         {/* Content */}
-        <div className="p-8 md:p-12">
-          <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-coral-red/70 mb-2 block">
+        <div className="p-8 md:p-12 text-charcoal">
+          <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-coral-red mb-2 block">
             {study.category}
           </span>
-          <h2 className="font-display text-[clamp(1.5rem,3vw,2.5rem)] tracking-tight leading-[1.1] mb-10">
+          <h2 className="font-display text-[clamp(1.5rem,3vw,2.5rem)] tracking-tight leading-[1.1] mb-10 text-charcoal">
             {study.title}
           </h2>
 
           <div className="space-y-8">
             <div>
-              <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-charcoal/30 mb-3">Challenge</h3>
-              <p className="text-charcoal/60 leading-relaxed">{study.challenge}</p>
+              <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral-red mb-3">Challenge</h3>
+              <p className="text-charcoal leading-relaxed">{study.challenge}</p>
             </div>
             <div>
-              <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-charcoal/30 mb-3">Solution</h3>
-              <p className="text-charcoal/60 leading-relaxed">{study.solution}</p>
+              <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral-red mb-3">Solution</h3>
+              <p className="text-charcoal leading-relaxed">{study.solution}</p>
             </div>
             <div>
-              <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-charcoal/30 mb-3">Results</h3>
-              <p className="text-charcoal/60 leading-relaxed">{study.results}</p>
+              <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral-red mb-3">Results</h3>
+              <p className="text-charcoal leading-relaxed">{study.results}</p>
             </div>
           </div>
 

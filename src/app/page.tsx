@@ -433,10 +433,10 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto">
           <div className="flex items-end justify-between mb-16 fade-up">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-coral-red mb-4 block">
+              <span className="mb-4 inline-flex bg-coral-red px-4 py-2 text-[11px] font-bold uppercase tracking-[0.25em] text-white">
                 Portfolio
               </span>
-              <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] tracking-tight leading-[1.05]">
+              <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] tracking-tight leading-[1.05] text-charcoal">
                 Selected Work
               </h2>
             </div>
@@ -471,7 +471,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <h3 className="font-display text-lg mb-1 group-hover:text-coral-red transition-colors duration-300">{study.title}</h3>
+                <h3 className="font-display text-lg mb-1 text-charcoal group-hover:text-coral-red transition-colors duration-300">{study.title}</h3>
                 <p className="text-sm text-charcoal/40 tracking-wide">{study.category}</p>
               </div>
             ))}
