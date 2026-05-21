@@ -444,7 +444,7 @@ export default function Home() {
               View All &rarr;
             </a>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 stagger-children">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
             {caseStudies.map((study) => (
               <div
                 key={study.title}
@@ -454,7 +454,7 @@ export default function Home() {
                   setCaseStudyModalOpen(true);
                 }}
               >
-                <div className="aspect-[4/5] relative overflow-hidden bg-light-gray">
+                <div className="aspect-[4/3] relative overflow-hidden bg-light-gray">
                   <Image
                     src={study.image}
                     alt={study.title}
