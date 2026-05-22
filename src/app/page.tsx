@@ -114,6 +114,14 @@ const caseStudies = [
     category: 'Women Raise the Game · Content',
     image: '/images/clients/wrtg-new.png',
     video: '/videos/wrtg-gamechangers.mp4',
+    heroVideo: '/videos/wrtg-gamechangers.mp4',
+    instagramComments: [
+      { username: 'mielleorganics', comment: '🩷🩷🩷🩷🩷' },
+      { username: 'invisalign', comment: '👏👏👏👏' },
+      { username: 'GenTZ', comment: '🙌🙌' },
+      { username: 'user', comment: '🙌🙌❤️❤️' },
+      { username: 'user', comment: '🔥🔥🔥' },
+    ],
     challenge: 'Women\'s sports needed a platform that celebrated the athletes and stories driving the biggest cultural shift in a generation.',
     solution: 'We created Game Changers — a content series spotlighting the women redefining sport, culture, and fandom through their stories and impact.',
     results: 'Game Changers became a flagship content franchise, building audience, brand partnerships, and cultural credibility for Women Raise the Game.',
@@ -191,6 +199,7 @@ const team = [
 
 const selectedWorkSlides = [
   { match: 'AT&T Dream in Black', brand: 'AT&T', campaign: 'Dream in Black' },
+  { match: 'Women Raise the Game', brand: 'WRTG', campaign: 'Game Changers' },
   { match: 'Human by Orientation', brand: 'HBO', campaign: 'Human by Orientation' },
   { match: 'Palante.', brand: 'HBO', campaign: 'Palante' },
   { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', brand: 'Invisalign', campaign: 'Women Raise the Game Champions' },

@@ -8,6 +8,7 @@ interface CaseStudy {
   category: string;
   image: string;
   video: string;
+  heroVideo?: string;
   challenge: string;
   solution: string;
   results: string;
@@ -19,6 +20,7 @@ interface CaseStudy {
   subheadingItalic?: boolean;
   labelStyle?: 'pill';
   stats?: { value: string; label: string }[];
+  instagramComments?: { username: string; comment: string }[];
 }
 
 interface CaseStudyModalProps {
@@ -75,15 +77,55 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
           </svg>
         </button>
 
-        {/* Image */}
+        {/* Hero media */}
         <div className="relative aspect-[16/9] w-full">
-          <Image
-            src={study.image}
-            alt={study.title}
-            fill
-            className="object-cover"
-          />
+          {study.heroVideo ? (
+            <video
+              className="h-full w-full object-cover"
+              src={study.heroVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ) : (
+            <Image
+              src={study.image}
+              alt={study.title}
+              fill
+              className="object-cover"
+            />
+          )}
         </div>
+
+        {study.instagramComments && study.instagramComments.length > 0 && (
+          <div className="bg-[#f7f7f5] px-6 py-8 md:px-12 md:py-10">
+            <div className="mx-auto max-w-sm overflow-hidden rounded-[8px] border border-charcoal/10 bg-white shadow-xl">
+              <div className="flex items-center gap-3 border-b border-charcoal/10 px-4 py-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-coral-red text-[11px] font-bold uppercase text-white">
+                  W
+                </div>
+                <div>
+                  <div className="text-sm font-bold leading-none text-charcoal">womenraisethegame</div>
+                  <div className="mt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-charcoal/45">Live post</div>
+                </div>
+              </div>
+              <div className="space-y-3 px-4 py-4">
+                {study.instagramComments.map((comment, index) => (
+                  <div
+                    key={`${comment.username}-${comment.comment}-${index}`}
+                    className="translate-y-2 opacity-0 text-[15px] leading-snug text-charcoal animate-[commentIn_0.45s_ease_forwards]"
+                    style={{ animationDelay: `${120 + index * 180}ms` }}
+                  >
+                    <span className="font-bold">{comment.username}</span>{' '}
+                    <span>{comment.comment}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Content */}
         <div className="p-8 md:p-12 text-charcoal">
