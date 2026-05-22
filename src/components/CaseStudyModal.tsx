@@ -16,6 +16,8 @@ interface CaseStudy {
   challengeLabel?: string;
   solutionLabel?: string;
   resultsLabel?: string;
+  subheadingItalic?: boolean;
+  labelStyle?: 'pill';
 }
 
 interface CaseStudyModalProps {
@@ -48,6 +50,9 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
   const challengeLabel = study.challengeLabel ?? 'Challenge';
   const solutionLabel = study.solutionLabel ?? 'Solution';
   const resultsLabel = study.resultsLabel ?? 'Results';
+  const labelClass = study.labelStyle === 'pill'
+    ? 'inline-flex bg-coral-red px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white mb-3'
+    : 'text-[11px] font-bold uppercase tracking-[0.2em] text-coral-red mb-3';
 
   return (
     <div
@@ -90,7 +95,7 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
             {study.title}
           </h2>
           {study.subheading && (
-            <p className="mb-8 text-lg font-light leading-relaxed text-charcoal">
+            <p className={`mb-8 text-lg font-light leading-relaxed text-charcoal ${study.subheadingItalic ? 'italic' : ''}`}>
               {study.subheading}
             </p>
           )}
@@ -102,16 +107,16 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
 
           <div className="space-y-8">
             <div>
-              <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral-red mb-3">{challengeLabel}</h3>
+              <h3 className={labelClass}>{challengeLabel}</h3>
               <p className="leading-relaxed text-charcoal">{study.challenge}</p>
             </div>
             <div>
-              <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral-red mb-3">{solutionLabel}</h3>
+              <h3 className={labelClass}>{solutionLabel}</h3>
               <p className="leading-relaxed text-charcoal">{study.solution}</p>
             </div>
             {study.results && resultsLabel && (
               <div>
-                <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral-red mb-3">{resultsLabel}</h3>
+                <h3 className={labelClass}>{resultsLabel}</h3>
                 <p className="leading-relaxed text-charcoal">{study.results}</p>
               </div>
             )}

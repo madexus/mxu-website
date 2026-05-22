@@ -55,6 +55,22 @@ const clients = [
 
 const caseStudies = [
   {
+    title: 'Human by Orientation',
+    category: 'Brand · Platform',
+    image: '/images/clients/human-by-orientation.png',
+    video: '',
+    subheading: 'HBO bet their brand on our read of the audience.',
+    subheadingItalic: true,
+    heroLine: 'The audience bet back.',
+    challengeLabel: 'The Bet',
+    solutionLabel: 'What It Paid',
+    resultsLabel: '',
+    labelStyle: 'pill' as const,
+    challenge: 'HBO handed us the voice of the brand and asked us to reframe what the network stood for in a moment when prestige television was fragmenting and audiences were picking sides. We wrote Human By Orientation as the answer — a brand posture that treated the viewer as a person first and a demographic never.',
+    solution: 'A brand platform HBO still runs on. A cultural positioning the audience chose to defend on its behalf. And the lesson every platform on this pitch should take: when you trust the agency fluent in the audience, you get your brand back bigger than you handed it over.',
+    results: '',
+  },
+  {
     title: 'Palante.',
     category: 'Brand · Platform',
     image: '/images/clients/palante.png',
