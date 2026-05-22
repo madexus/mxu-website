@@ -16,7 +16,6 @@ interface CaseStudy {
   challengeLabel?: string;
   solutionLabel?: string;
   resultsLabel?: string;
-  theme?: 'dark';
 }
 
 interface CaseStudyModalProps {
@@ -46,7 +45,6 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
 
   if (!isOpen || !study) return null;
 
-  const isDark = study.theme === 'dark';
   const challengeLabel = study.challengeLabel ?? 'Challenge';
   const solutionLabel = study.solutionLabel ?? 'Solution';
   const resultsLabel = study.resultsLabel ?? 'Results';
@@ -58,7 +56,7 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
     >
       <div className="absolute inset-0 bg-black/75 animate-[modalIn_0.3s_ease]" />
       <div
-        className={`relative w-full max-w-3xl max-h-[90vh] overflow-y-auto animate-[modalIn_0.4s_cubic-bezier(0.16,1,0.3,1)] ${isDark ? 'bg-black' : 'bg-white'}`}
+        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white animate-[modalIn_0.4s_cubic-bezier(0.16,1,0.3,1)]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -84,15 +82,15 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
         </div>
 
         {/* Content */}
-        <div className={`p-8 md:p-12 ${isDark ? 'text-white' : 'text-charcoal'}`}>
+        <div className="p-8 md:p-12 text-charcoal">
           <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-coral-red mb-2 block">
             {study.category}
           </span>
-          <h2 className={`font-display text-[clamp(1.5rem,3vw,2.5rem)] tracking-tight leading-[1.1] mb-4 ${isDark ? 'text-white' : 'text-charcoal'}`}>
+          <h2 className="font-display text-[clamp(1.5rem,3vw,2.5rem)] tracking-tight leading-[1.1] mb-4 text-charcoal">
             {study.title}
           </h2>
           {study.subheading && (
-            <p className={`mb-8 text-lg font-light leading-relaxed ${isDark ? 'text-white/80' : 'text-charcoal'}`}>
+            <p className="mb-8 text-lg font-light leading-relaxed text-charcoal">
               {study.subheading}
             </p>
           )}
@@ -105,16 +103,16 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
           <div className="space-y-8">
             <div>
               <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral-red mb-3">{challengeLabel}</h3>
-              <p className={`${isDark ? 'text-white/85' : 'text-charcoal'} leading-relaxed`}>{study.challenge}</p>
+              <p className="leading-relaxed text-charcoal">{study.challenge}</p>
             </div>
             <div>
               <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral-red mb-3">{solutionLabel}</h3>
-              <p className={`${isDark ? 'text-white/85' : 'text-charcoal'} leading-relaxed`}>{study.solution}</p>
+              <p className="leading-relaxed text-charcoal">{study.solution}</p>
             </div>
             {study.results && resultsLabel && (
               <div>
                 <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral-red mb-3">{resultsLabel}</h3>
-                <p className={`${isDark ? 'text-white/85' : 'text-charcoal'} leading-relaxed`}>{study.results}</p>
+                <p className="leading-relaxed text-charcoal">{study.results}</p>
               </div>
             )}
           </div>

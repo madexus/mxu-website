@@ -67,7 +67,6 @@ const caseStudies = [
     challenge: 'HBO was moving away from HBO Latino. The Spanish-only approach had stopped speaking to an audience that was multi-hyphenate, bicultural, and coming into their own power on their own terms. Retro-acculturation was the real story. We named it Palante — a colloquial contraction of para adelante, go forward — and built a content vertical laddered to HBO\'s "Our Stories to Tell" umbrella.',
     solution: '800K+ combined social followers. A highly trafficked home for nurturing Latino voices. A through-line that helped propel HBO Max toward its 70M subscriber goal. An enduring platform the industry still cites as the model for how prestige brands reach the audience they were about to lose.',
     results: '',
-    theme: 'dark' as const,
   },
   {
     title: 'AT&T Dream in Black',
