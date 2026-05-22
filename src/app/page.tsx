@@ -282,7 +282,7 @@ export default function Home() {
             {[
               ['Work', '#work'],
               ['Insider', '#positioning'],
-              ['About Her', '#about'],
+              ['About Her', '/about-her'],
             ].map(([label, href]) => (
               <li key={label}>
                 <a
@@ -334,7 +334,7 @@ export default function Home() {
               ['Creator Ad Network', '#offerings'],
               ['Work', '#work'],
               ['Insider', '#positioning'],
-              ['About Her', '#about'],
+              ['About Her', '/about-her'],
               ['Work With Us', '#contact'],
             ].map(([label, href]) => (
               <a
