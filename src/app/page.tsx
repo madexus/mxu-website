@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import EmailGateModal from '@/components/EmailGateModal';
@@ -191,10 +191,10 @@ const team = [
 
 const selectedWorkSlides = [
   { match: 'AT&T Dream in Black', title: 'AT&T Dream in Black' },
-  { match: 'Human by Orientation', title: 'Human by Orientation' },
+  { match: 'Human by Orientation', title: 'HBO' },
   { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', title: 'Women Raise the Game - Champions' },
-  { match: 'Palante.', title: 'Palante' },
-  { match: 'Women Own the Culture.', title: 'MLB All-Star Week / Women Own the Culture' },
+  { match: 'Palante.', title: 'HBO' },
+  { match: 'Women Own the Culture.', title: 'MLB' },
   { match: 'Kindli', title: 'Kindli' },
 ]
   .map((slide) => {
@@ -212,15 +212,12 @@ export default function Home() {
   const [caseStudyModalOpen, setCaseStudyModalOpen] = useState(false);
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<typeof caseStudies[number] | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [heroParallax, setHeroParallax] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [navOnLightSection, setNavOnLightSection] = useState(false);
   const [activeWorkIndex, setActiveWorkIndex] = useState(0);
-  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setHeroParallax(window.scrollY * 0.35);
       setScrollY(window.scrollY);
       const positioningSection = document.getElementById('positioning');
       setNavOnLightSection(
@@ -379,32 +376,90 @@ export default function Home() {
         )}
       </nav>
 
-      {/* ─── SECTION 1: HERO — MAGAZINE COVER ─── */}
-      <section
-        ref={heroRef}
-        className="relative h-screen min-h-[720px] flex items-center overflow-hidden bg-coral-red"
-        id="hero"
-      >
-        {/* Full-bleed hero image with parallax */}
-        <div
-          className="absolute inset-0"
-          style={{ transform: `translateY(${heroParallax}px)` }}
-        >
-          <Image
-            src="/images/madexus_hero_clean.png"
-            alt="MXU Hero"
-            fill
-            className="object-cover object-center scale-105"
-            priority
-            sizes="100vw"
-          />
-        </div>
+      {/* ─── SECTION 1: HERO — SELECTED WORK CAROUSEL ─── */}
+      <section className="relative h-screen min-h-[720px] overflow-hidden bg-charcoal text-white" id="hero" aria-label="Selected Work">
+        {selectedWorkSlides.map((study, index) => (
+          <button
+            key={study.title}
+            type="button"
+            aria-hidden={activeWorkIndex !== index}
+            className={`group absolute inset-0 cursor-pointer text-left transition-opacity duration-700 ${
+              activeWorkIndex === index ? 'z-10 opacity-100' : 'z-0 opacity-0 pointer-events-none'
+            }`}
+            onClick={() => {
+              setSelectedCaseStudy(study);
+              setCaseStudyModalOpen(true);
+            }}
+          >
+            {study.video ? (
+              <video
+                className="absolute inset-0 h-full w-full object-cover"
+                src={study.video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            ) : (
+              <Image
+                src={study.image}
+                alt=""
+                fill
+                priority={index === 0}
+                className="object-cover transition-transform duration-[6500ms] ease-linear group-hover:scale-105"
+                sizes="100vw"
+              />
+            )}
+            <div className="absolute inset-0 bg-black/35 transition-colors duration-500 group-hover:bg-black/50" />
+            <div className="absolute left-6 right-6 top-24 z-10 md:left-12 md:right-12 md:top-32">
+              <span className="inline-flex border border-coral-red bg-black/20 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-coral-red backdrop-blur-sm">
+                {study.category}
+              </span>
+            </div>
+            <div className="absolute bottom-24 left-6 right-6 z-10 max-w-5xl md:bottom-28 md:left-12 md:right-12">
+              <h1 className="max-w-4xl font-display text-[clamp(2.8rem,7vw,7.8rem)] leading-[0.9] tracking-normal text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.28)]">
+                {study.carouselTitle}
+              </h1>
+              <div className="mt-8 inline-flex translate-y-2 items-center gap-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                View Work
+                <span aria-hidden="true" className="text-2xl leading-none">&rarr;</span>
+              </div>
+            </div>
+          </button>
+        ))}
 
-        {/* Hero content */}
-        <div className="relative z-10 flex min-h-screen w-full max-w-[1400px] items-center mx-auto px-6 pb-20 pt-24 text-left text-white md:px-[60px] md:pb-28 md:pt-32">
-          <div className="hero-reveal hero-reveal-delay-1 max-w-[520px] -translate-y-10 space-y-2 font-bold text-[clamp(3rem,4.6vw,4.25rem)] leading-[0.96] text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.18)]">
-            <p>INSIDERS for</p>
-            <p>Culture. Women.<br />Sport.</p>
+        <div className="absolute bottom-8 left-6 right-6 z-20 flex items-center justify-between gap-6 md:left-12 md:right-12">
+          <div className="flex flex-1 items-center gap-2" aria-label="Selected Work progress">
+            {selectedWorkSlides.map((study, index) => (
+              <button
+                key={`${study.title}-dot`}
+                type="button"
+                aria-label={`Show ${study.carouselTitle}`}
+                onClick={() => setActiveWorkIndex(index)}
+                className={`h-[3px] flex-1 transition-colors duration-300 ${
+                  activeWorkIndex === index ? 'bg-coral-red' : 'bg-white/35 hover:bg-white/65'
+                }`}
+              />
+            ))}
+          </div>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              aria-label="Previous work item"
+              onClick={() => showWorkSlide(-1)}
+              className="flex h-11 w-11 items-center justify-center border border-white/65 text-2xl text-white transition-colors hover:border-coral-red hover:bg-coral-red"
+            >
+              &larr;
+            </button>
+            <button
+              type="button"
+              aria-label="Next work item"
+              onClick={() => showWorkSlide(1)}
+              className="flex h-11 w-11 items-center justify-center border border-white/65 text-2xl text-white transition-colors hover:border-coral-red hover:bg-coral-red"
+            >
+              &rarr;
+            </button>
           </div>
         </div>
       </section>
@@ -511,94 +566,7 @@ export default function Home() {
 
       {/* WRTG SECTION REMOVED PER FEEDBACK */}
 
-      {/* ─── SECTION 5: SELECTED WORK CAROUSEL ─── */}
-      <section className="relative h-screen min-h-[720px] overflow-hidden bg-charcoal text-white" id="work" aria-label="Selected Work">
-        {selectedWorkSlides.map((study, index) => (
-          <button
-            key={study.title}
-            type="button"
-            aria-hidden={activeWorkIndex !== index}
-            className={`group absolute inset-0 cursor-pointer text-left transition-opacity duration-700 ${
-              activeWorkIndex === index ? 'z-10 opacity-100' : 'z-0 opacity-0 pointer-events-none'
-            }`}
-            onClick={() => {
-              setSelectedCaseStudy(study);
-              setCaseStudyModalOpen(true);
-            }}
-          >
-            {study.video ? (
-              <video
-                className="absolute inset-0 h-full w-full object-cover"
-                src={study.video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              />
-            ) : (
-              <Image
-                src={study.image}
-                alt=""
-                fill
-                className="object-cover transition-transform duration-[6500ms] ease-linear group-hover:scale-105"
-                sizes="100vw"
-              />
-            )}
-            <div className="absolute inset-0 bg-black/35 transition-colors duration-500 group-hover:bg-black/50" />
-            <div className="absolute left-6 right-6 top-24 z-10 md:left-12 md:right-12 md:top-32">
-              <span className="inline-flex border border-coral-red bg-black/20 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-coral-red backdrop-blur-sm">
-                {study.category}
-              </span>
-            </div>
-            <div className="absolute bottom-24 left-6 right-6 z-10 max-w-5xl md:bottom-28 md:left-12 md:right-12">
-              <h2 className="max-w-4xl font-display text-[clamp(2.8rem,7vw,7.8rem)] leading-[0.9] tracking-normal text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.28)]">
-                {study.carouselTitle}
-              </h2>
-              <div className="mt-8 inline-flex translate-y-2 items-center gap-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                View Work
-                <span aria-hidden="true" className="text-2xl leading-none">&rarr;</span>
-              </div>
-            </div>
-          </button>
-        ))}
-
-        <div className="absolute bottom-8 left-6 right-6 z-20 flex items-center justify-between gap-6 md:left-12 md:right-12">
-          <div className="flex flex-1 items-center gap-2" aria-label="Selected Work progress">
-            {selectedWorkSlides.map((study, index) => (
-              <button
-                key={`${study.title}-dot`}
-                type="button"
-                aria-label={`Show ${study.carouselTitle}`}
-                onClick={() => setActiveWorkIndex(index)}
-                className={`h-[3px] flex-1 transition-colors duration-300 ${
-                  activeWorkIndex === index ? 'bg-coral-red' : 'bg-white/35 hover:bg-white/65'
-                }`}
-              />
-            ))}
-          </div>
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              aria-label="Previous work item"
-              onClick={() => showWorkSlide(-1)}
-              className="flex h-11 w-11 items-center justify-center border border-white/65 text-2xl text-white transition-colors hover:border-coral-red hover:bg-coral-red"
-            >
-              &larr;
-            </button>
-            <button
-              type="button"
-              aria-label="Next work item"
-              onClick={() => showWorkSlide(1)}
-              className="flex h-11 w-11 items-center justify-center border border-white/65 text-2xl text-white transition-colors hover:border-coral-red hover:bg-coral-red"
-            >
-              &rarr;
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SECTION 6: BRAND PARTNERS — INFINITE MARQUEE ─── */}
+      {/* ─── SECTION 5: BRAND PARTNERS — INFINITE MARQUEE ─── */}
       <section className="py-24 md:py-32 bg-white border-y border-charcoal/[0.04] overflow-hidden">
         <div className="text-center mb-14 px-6">
           <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-muted block fade-up">
