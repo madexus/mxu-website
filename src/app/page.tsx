@@ -190,18 +190,18 @@ const team = [
 ];
 
 const selectedWorkSlides = [
-  { match: 'AT&T Dream in Black', title: 'AT&T Dream in Black' },
-  { match: 'Human by Orientation', title: 'HBO' },
-  { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', title: 'Women Raise the Game - Champions' },
-  { match: 'Palante.', title: 'HBO' },
-  { match: 'Women Own the Culture.', title: 'MLB', carouselImage: '/images/clients/mlb-stadium-crowd.png' },
-  { match: 'Kindli', title: 'Kindli' },
+  { match: 'AT&T Dream in Black', brand: 'AT&T', campaign: 'Dream in Black' },
+  { match: 'Human by Orientation', brand: 'HBO', campaign: 'Human by Orientation' },
+  { match: 'Palante.', brand: 'HBO', campaign: 'Palante' },
+  { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', brand: 'Invisalign', campaign: 'Women Raise the Game Champions' },
+  { match: 'Women Own the Culture.', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-stadium-crowd.png' },
+  { match: 'Kindli', brand: 'Kindli', campaign: '' },
 ]
   .map((slide) => {
     const study = caseStudies.find((item) => item.title === slide.match);
-    return study ? { ...study, carouselTitle: slide.title, carouselImage: slide.carouselImage ?? study.image } : null;
+    return study ? { ...study, carouselBrand: slide.brand, carouselCampaign: slide.campaign, carouselImage: slide.carouselImage ?? study.image } : null;
   })
-  .filter((slide): slide is typeof caseStudies[number] & { carouselTitle: string; carouselImage: string } => Boolean(slide));
+  .filter((slide): slide is typeof caseStudies[number] & { carouselBrand: string; carouselCampaign: string; carouselImage: string } => Boolean(slide));
 
 export default function Home() {
   useScrollAnimation();
@@ -412,19 +412,15 @@ export default function Home() {
               />
             )}
             <div className="absolute inset-0 bg-black/35 transition-colors duration-500 group-hover:bg-black/50" />
-            <div className="absolute left-6 right-6 top-24 z-10 md:left-12 md:right-12 md:top-32">
-              <span className="inline-flex border border-coral-red bg-black/20 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-coral-red backdrop-blur-sm">
-                {study.category}
+            <div className="absolute bottom-24 left-6 z-10 flex max-w-[calc(100vw-3rem)] flex-col items-start gap-2 md:bottom-28 md:left-12 md:max-w-lg md:flex-row md:items-center">
+              <span className="inline-flex bg-coral-red px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-white md:px-4">
+                {study.carouselBrand}
               </span>
-            </div>
-            <div className="absolute bottom-24 left-6 right-6 z-10 max-w-5xl md:bottom-28 md:left-12 md:right-12">
-              <h1 className="max-w-4xl font-display text-[clamp(2.8rem,7vw,7.8rem)] leading-[0.9] tracking-normal text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.28)]">
-                {study.carouselTitle}
-              </h1>
-              <div className="mt-8 inline-flex translate-y-2 items-center gap-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                View Work
-                <span aria-hidden="true" className="text-2xl leading-none">&rarr;</span>
-              </div>
+              {study.carouselCampaign && (
+                <span className="text-sm font-medium leading-tight text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.55)] md:text-base">
+                  {study.carouselCampaign}
+                </span>
+              )}
             </div>
           </button>
         ))}
@@ -435,7 +431,7 @@ export default function Home() {
               <button
                 key={`${study.title}-dot`}
                 type="button"
-                aria-label={`Show ${study.carouselTitle}`}
+                aria-label={`Show ${study.carouselBrand}${study.carouselCampaign ? ` - ${study.carouselCampaign}` : ''}`}
                 onClick={() => setActiveWorkIndex(index)}
                 className={`h-[3px] flex-1 transition-colors duration-300 ${
                   activeWorkIndex === index ? 'bg-coral-red' : 'bg-white/35 hover:bg-white/65'
