@@ -55,6 +55,22 @@ const clients = [
 
 const caseStudies = [
   {
+    title: 'Women Own the Culture.',
+    category: 'Fandom Marketing · Experiential',
+    image: '/images/clients/ausl-mlb-generational-partnership.png',
+    video: '',
+    subheading: 'MLB × AUSL · Women Raise the Game',
+    subheadingItalic: true,
+    heroLine: 'Women\'s fandom isn\'t a niche. It\'s the growth engine. madeXus is built to move brands inside it.',
+    challengeLabel: 'The Read',
+    solutionLabel: 'What It Paid',
+    resultsLabel: 'What We Did',
+    labelStyle: 'pill' as const,
+    challenge: 'MLB All-Star Week, Atlanta · July 14, 2025 — Punch Bowl Social at The Battery\n\nWomen are the fastest-growing sports fan base in the country — and the most loyal. madeXus × WRTG activated that fandom at the intersection of baseball and softball, putting women at the center of MLB All-Star Week for the first time.',
+    solution: '$60K investment to activate women\'s fandom\n~$1M earned media value generated\n98.1M unique viewers reached (UVM)\n139K social reach across women\'s sports audience\n9.9K engagements — no paid media\n90% coverage in non-sports (lifestyle, news, TV)',
+    results: 'Fandom Activation — Built the room where women\'s sports power actually sits — athletes, execs, creators, and league commissioners in one curated space.\n\nCulture Crossover — 90% of media pickup landed outside sports — in general news, broadcast TV, and lifestyle. Women\'s fandom travels beyond the box score.\n\nCommunity-First Content — Storytelling strategy drove 98M+ UVM organically. Female fan community amplified the moment far beyond any paid media could.',
+  },
+  {
     title: 'Human by Orientation',
     category: 'Brand · Platform',
     image: '/images/clients/human-by-orientation.png',
