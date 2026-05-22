@@ -18,6 +18,7 @@ interface CaseStudy {
   resultsLabel?: string;
   subheadingItalic?: boolean;
   labelStyle?: 'pill';
+  stats?: { value: string; label: string }[];
 }
 
 interface CaseStudyModalProps {
@@ -105,6 +106,17 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
             </p>
           )}
 
+          {study.stats && study.stats.length > 0 && (
+            <div className="mb-10 grid gap-3 sm:grid-cols-2">
+              {study.stats.map((stat) => (
+                <div key={`${stat.value}-${stat.label}`} className="bg-coral-red p-5 text-white">
+                  <div className="font-display text-[clamp(1.8rem,4vw,3rem)] leading-none">{stat.value}</div>
+                  <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white/85">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
           <div className="space-y-8">
             <div>
               <h3 className={labelClass}>{challengeLabel}</h3>
@@ -117,7 +129,7 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
             {study.results && resultsLabel && (
               <div>
                 <h3 className={labelClass}>{resultsLabel}</h3>
-                <p className="leading-relaxed text-charcoal">{study.results}</p>
+                <p className="whitespace-pre-line leading-relaxed text-charcoal">{study.results}</p>
               </div>
             )}
           </div>
