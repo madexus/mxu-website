@@ -37,7 +37,7 @@ function Nav() {
   const links = [
     ['What We Do', '/#offerings'],
     ['Work', '/#work'],
-    ['Insider', '/#positioning'],
+    ['Insider', '/#about'],
     ['About Her', '/about-her'],
   ];
 
@@ -84,14 +84,6 @@ function Nav() {
   );
 }
 
-function Pill({ children }: { children: ReactNode }) {
-  return (
-    <span className="inline-flex self-start rounded-full border border-coral-red px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-coral-red">
-      {children}
-    </span>
-  );
-}
-
 function Highlight({ children }: { children: ReactNode }) {
   return <span className="inline-flex bg-coral-red px-2 text-white">{children}</span>;
 }
@@ -111,8 +103,7 @@ export default function AboutHerPage() {
         />
         <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 mx-auto flex min-h-[calc(100vh-9rem)] max-w-[1400px] flex-col justify-end">
-          <Pill>HER</Pill>
-          <h1 className="mt-8 max-w-5xl font-display text-[clamp(2.25rem,5.4vw,5.5rem)] uppercase leading-[0.95] tracking-tight text-white">
+          <h1 className="max-w-4xl font-display text-[clamp(1.9rem,3.9vw,4rem)] uppercase leading-[1.02] tracking-tight text-white">
             The women driving attention, taste, and purchase <Highlight>now.</Highlight>
           </h1>
           <div className="mt-12 grid gap-px border-y border-white/30 bg-white/30 md:grid-cols-5">
@@ -130,11 +121,10 @@ export default function AboutHerPage() {
         </div>
       </section>
 
-      <section className="bg-black px-6 py-20 text-white md:px-12 md:py-24">
+      <section className="bg-black px-6 py-16 text-white md:px-12 md:py-20">
         <div className="mx-auto max-w-[1400px]">
-          <Pill>HOW SHE MOVES</Pill>
-          <div className="mt-8 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-            <h2 className="font-display text-[clamp(1.9rem,3.6vw,3.7rem)] uppercase leading-[1] tracking-tight">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <h2 className="font-display text-[clamp(1.8rem,3vw,3.2rem)] uppercase leading-[1.05] tracking-tight">
               Our four reads on how she behaves.
             </h2>
             <p className="max-w-2xl text-xl italic leading-relaxed text-white/70">
@@ -162,11 +152,10 @@ export default function AboutHerPage() {
         />
         <div className="absolute inset-0 bg-black/38" />
         <div className="relative z-10 mx-auto flex min-h-[58vh] max-w-[1400px] flex-col justify-end">
-          <Pill>THE INVITATION</Pill>
-          <h2 className="mt-8 max-w-5xl font-display text-[clamp(2.25rem,5.2vw,5.4rem)] uppercase leading-[0.95] tracking-tight text-white">
+          <h2 className="max-w-4xl font-display text-[clamp(1.9rem,3.8vw,4rem)] uppercase leading-[1.02] tracking-tight text-white">
             Give us a problem you&apos;re sitting on. We&apos;ll give you <Highlight>her.</Highlight>
           </h2>
-          <p className="mt-10 text-sm font-bold uppercase tracking-[0.18em] text-white">
+          <p className="mt-10 text-base font-extrabold uppercase tracking-[0.16em] text-white md:text-lg">
             madeXus | chris@madexus.com | madexus.com
           </p>
         </div>

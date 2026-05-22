@@ -281,7 +281,7 @@ export default function Home() {
             </li>
             {[
               ['Work', '#work'],
-              ['Insider', '#positioning'],
+              ['Insider', '#about'],
               ['About Her', '/about-her'],
             ].map(([label, href]) => (
               <li key={label}>
@@ -333,7 +333,7 @@ export default function Home() {
               ['Women Raise the Game', '#offerings'],
               ['Creator Ad Network', '#offerings'],
               ['Work', '#work'],
-              ['Insider', '#positioning'],
+              ['Insider', '#about'],
               ['About Her', '/about-her'],
               ['Work With Us', '#contact'],
             ].map(([label, href]) => (
