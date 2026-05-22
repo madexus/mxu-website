@@ -189,6 +189,20 @@ const team = [
   { name: 'Yvette Villanueva', role: 'Sr. Dir. Growth', image: '/images/team/yvette.webp' },
 ];
 
+const selectedWorkSlides = [
+  { match: 'AT&T Dream in Black', title: 'AT&T Dream in Black' },
+  { match: 'Human by Orientation', title: 'Human by Orientation' },
+  { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', title: 'Women Raise the Game - Champions' },
+  { match: 'Palante.', title: 'Palante' },
+  { match: 'Women Own the Culture.', title: 'MLB All-Star Week / Women Own the Culture' },
+  { match: 'Kindli', title: 'Kindli' },
+]
+  .map((slide) => {
+    const study = caseStudies.find((item) => item.title === slide.match);
+    return study ? { ...study, carouselTitle: slide.title } : null;
+  })
+  .filter((slide): slide is typeof caseStudies[number] & { carouselTitle: string } => Boolean(slide));
+
 export default function Home() {
   useScrollAnimation();
   const [modalOpen, setModalOpen] = useState(false);
@@ -201,6 +215,7 @@ export default function Home() {
   const [heroParallax, setHeroParallax] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [navOnLightSection, setNavOnLightSection] = useState(false);
+  const [activeWorkIndex, setActiveWorkIndex] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -220,6 +235,20 @@ export default function Home() {
   const openModal = (title: string) => {
     setSelectedOffering(title);
     setModalOpen(true);
+  };
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveWorkIndex((current) => (current + 1) % selectedWorkSlides.length);
+    }, 5000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const showWorkSlide = (direction: 1 | -1) => {
+    setActiveWorkIndex((current) => (
+      current + direction + selectedWorkSlides.length
+    ) % selectedWorkSlides.length);
   };
 
   return (
@@ -280,7 +309,7 @@ export default function Home() {
               </div>
             </li>
             {[
-              ['Work', '#work'],
+              ['Work', '/work'],
               ['Insider', '#about'],
               ['About Her', '/about-her'],
             ].map(([label, href]) => (
@@ -332,7 +361,7 @@ export default function Home() {
               ['What We Do', '#offerings'],
               ['Women Raise the Game', '#offerings'],
               ['Creator Ad Network', '#offerings'],
-              ['Work', '#work'],
+              ['Work', '/work'],
               ['Insider', '#about'],
               ['About Her', '/about-her'],
               ['Work With Us', '#contact'],
@@ -482,51 +511,89 @@ export default function Home() {
 
       {/* WRTG SECTION REMOVED PER FEEDBACK */}
 
-      {/* ─── SECTION 5: SELECTED WORK ─── */}
-      <section className="py-32 md:py-40 px-6 md:px-12 bg-white" id="work">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="flex items-end justify-between mb-16 fade-up">
-            <div>
-              <span className="mb-4 inline-flex bg-coral-red px-4 py-2 text-[11px] font-bold uppercase tracking-[0.25em] text-white">
-                Portfolio
+      {/* ─── SECTION 5: SELECTED WORK CAROUSEL ─── */}
+      <section className="relative h-screen min-h-[720px] overflow-hidden bg-charcoal text-white" id="work" aria-label="Selected Work">
+        {selectedWorkSlides.map((study, index) => (
+          <button
+            key={study.title}
+            type="button"
+            aria-hidden={activeWorkIndex !== index}
+            className={`group absolute inset-0 cursor-pointer text-left transition-opacity duration-700 ${
+              activeWorkIndex === index ? 'z-10 opacity-100' : 'z-0 opacity-0 pointer-events-none'
+            }`}
+            onClick={() => {
+              setSelectedCaseStudy(study);
+              setCaseStudyModalOpen(true);
+            }}
+          >
+            {study.video ? (
+              <video
+                className="absolute inset-0 h-full w-full object-cover"
+                src={study.video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            ) : (
+              <Image
+                src={study.image}
+                alt=""
+                fill
+                className="object-cover transition-transform duration-[6500ms] ease-linear group-hover:scale-105"
+                sizes="100vw"
+              />
+            )}
+            <div className="absolute inset-0 bg-black/35 transition-colors duration-500 group-hover:bg-black/50" />
+            <div className="absolute left-6 right-6 top-24 z-10 md:left-12 md:right-12 md:top-32">
+              <span className="inline-flex border border-coral-red bg-black/20 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-coral-red backdrop-blur-sm">
+                {study.category}
               </span>
-              <h2 className="font-display text-[clamp(2rem,4vw,3.5rem)] tracking-tight leading-[1.05] text-charcoal">
-                Selected Work
-              </h2>
             </div>
-            <a href="#" className="text-coral-red text-[13px] font-bold uppercase tracking-[0.1em] hidden sm:block hover:text-coral-hover transition-colors">
-              View All &rarr;
-            </a>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
-            {caseStudies.map((study) => (
-              <div
-                key={study.title}
-                className="group cursor-pointer fade-up"
-                onClick={() => {
-                  setSelectedCaseStudy(study);
-                  setCaseStudyModalOpen(true);
-                }}
-              >
-                <div className="aspect-video relative overflow-hidden bg-light-gray">
-                  <Image
-                    src={study.image}
-                    alt={study.title}
-                    fill
-                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/45" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    <p className="mb-2 text-[11px] font-light uppercase tracking-[0.18em] text-white/85">
-                      {study.category}
-                    </p>
-                    <h3 className="text-2xl font-bold leading-tight text-white md:text-3xl">
-                      {study.title}
-                    </h3>
-                  </div>
-                </div>
+            <div className="absolute bottom-24 left-6 right-6 z-10 max-w-5xl md:bottom-28 md:left-12 md:right-12">
+              <h2 className="max-w-4xl font-display text-[clamp(2.8rem,7vw,7.8rem)] leading-[0.9] tracking-normal text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.28)]">
+                {study.carouselTitle}
+              </h2>
+              <div className="mt-8 inline-flex translate-y-2 items-center gap-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                View Work
+                <span aria-hidden="true" className="text-2xl leading-none">&rarr;</span>
               </div>
+            </div>
+          </button>
+        ))}
+
+        <div className="absolute bottom-8 left-6 right-6 z-20 flex items-center justify-between gap-6 md:left-12 md:right-12">
+          <div className="flex flex-1 items-center gap-2" aria-label="Selected Work progress">
+            {selectedWorkSlides.map((study, index) => (
+              <button
+                key={`${study.title}-dot`}
+                type="button"
+                aria-label={`Show ${study.carouselTitle}`}
+                onClick={() => setActiveWorkIndex(index)}
+                className={`h-[3px] flex-1 transition-colors duration-300 ${
+                  activeWorkIndex === index ? 'bg-coral-red' : 'bg-white/35 hover:bg-white/65'
+                }`}
+              />
             ))}
+          </div>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              aria-label="Previous work item"
+              onClick={() => showWorkSlide(-1)}
+              className="flex h-11 w-11 items-center justify-center border border-white/65 text-2xl text-white transition-colors hover:border-coral-red hover:bg-coral-red"
+            >
+              &larr;
+            </button>
+            <button
+              type="button"
+              aria-label="Next work item"
+              onClick={() => showWorkSlide(1)}
+              className="flex h-11 w-11 items-center justify-center border border-white/65 text-2xl text-white transition-colors hover:border-coral-red hover:bg-coral-red"
+            >
+              &rarr;
+            </button>
           </div>
         </div>
       </section>
@@ -664,7 +731,7 @@ export default function Home() {
               <div className="space-y-3">
                 {[
                   ['About', '#about'],
-                  ['Work', '#work'],
+                  ['Work', '/work'],
                   ['Careers', '#'],
                   ['Contact', '#contact'],
                 ].map(([label, href]) => (
