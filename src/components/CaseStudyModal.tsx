@@ -51,9 +51,7 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
   const challengeLabel = study.challengeLabel ?? 'Challenge';
   const solutionLabel = study.solutionLabel ?? 'Solution';
   const resultsLabel = study.resultsLabel ?? 'Results';
-  const labelClass = study.labelStyle === 'pill'
-    ? 'inline-flex bg-coral-red px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white mb-3'
-    : 'text-[11px] font-bold uppercase tracking-[0.2em] text-coral-red mb-3';
+  const labelClass = 'inline-flex bg-coral-red px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white mb-3';
 
   return (
     <div
@@ -92,11 +90,11 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
           <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-coral-red mb-2 block">
             {study.category}
           </span>
-          <h2 className="font-display text-[clamp(1.5rem,3vw,2.5rem)] tracking-tight leading-[1.1] mb-4 text-charcoal">
+          <h2 className="font-display text-[clamp(1.8rem,4vw,3.25rem)] uppercase tracking-tight leading-[1.05] mb-4 text-charcoal">
             {study.title}
           </h2>
           {study.subheading && (
-            <p className={`mb-8 text-lg font-light leading-relaxed text-charcoal ${study.subheadingItalic ? 'italic' : ''}`}>
+            <p className="mb-8 text-lg font-normal italic leading-relaxed text-charcoal">
               {study.subheading}
             </p>
           )}
@@ -120,16 +118,16 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
           <div className="space-y-8">
             <div>
               <h3 className={labelClass}>{challengeLabel}</h3>
-              <p className="leading-relaxed text-charcoal">{study.challenge}</p>
+              <p className="text-base leading-relaxed text-charcoal">{study.challenge}</p>
             </div>
             <div>
               <h3 className={labelClass}>{solutionLabel}</h3>
-              <p className="leading-relaxed text-charcoal">{study.solution}</p>
+              <p className="text-base leading-relaxed text-charcoal">{study.solution}</p>
             </div>
             {study.results && resultsLabel && (
               <div>
                 <h3 className={labelClass}>{resultsLabel}</h3>
-                <p className="whitespace-pre-line leading-relaxed text-charcoal">{study.results}</p>
+                <p className="whitespace-pre-line text-base leading-relaxed text-charcoal">{study.results}</p>
               </div>
             )}
           </div>

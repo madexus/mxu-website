@@ -492,7 +492,7 @@ export default function Home() {
                   setCaseStudyModalOpen(true);
                 }}
               >
-                <div className="aspect-[4/3] relative overflow-hidden bg-light-gray">
+                <div className="aspect-video relative overflow-hidden bg-light-gray">
                   <Image
                     src={study.image}
                     alt={study.title}
