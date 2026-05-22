@@ -86,7 +86,7 @@ function Nav() {
 
 function Pill({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex self-start border border-coral-red px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-coral-red">
+    <span className="inline-flex self-start rounded-full border border-coral-red px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-coral-red">
       {children}
     </span>
   );
@@ -130,11 +130,11 @@ export default function AboutHerPage() {
         </div>
       </section>
 
-      <section className="bg-black px-6 py-24 text-white md:px-12 md:py-32">
+      <section className="bg-black px-6 py-20 text-white md:px-12 md:py-24">
         <div className="mx-auto max-w-[1400px]">
           <Pill>HOW SHE MOVES</Pill>
-          <div className="mt-8 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-            <h2 className="font-display text-[clamp(2.2rem,5vw,5.2rem)] uppercase leading-[0.95] tracking-tight">
+          <div className="mt-8 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <h2 className="font-display text-[clamp(1.9rem,3.6vw,3.7rem)] uppercase leading-[1] tracking-tight">
               Our four reads on how she behaves.
             </h2>
             <p className="max-w-2xl text-xl italic leading-relaxed text-white/70">
@@ -150,19 +150,10 @@ export default function AboutHerPage() {
               </article>
             ))}
           </div>
-          <div className="mt-10 hidden overflow-hidden md:block">
-            <Image
-              src="/images/about-her/asset-9.png"
-              alt="Woman in red tee and sunglasses against teal sky"
-              width={1280}
-              height={720}
-              className="h-[360px] w-full object-cover object-[center_36%] opacity-75"
-            />
-          </div>
         </div>
       </section>
 
-      <section className="relative min-h-[86vh] overflow-hidden px-6 py-28 md:px-12 md:py-36">
+      <section className="relative min-h-[86vh] overflow-hidden px-6 py-28 md:px-12 md:py-32">
         <Image
           src="/images/about-her/asset-7.png"
           alt="Four women against a blue sky"
