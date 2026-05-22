@@ -194,14 +194,14 @@ const selectedWorkSlides = [
   { match: 'Human by Orientation', title: 'HBO' },
   { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', title: 'Women Raise the Game - Champions' },
   { match: 'Palante.', title: 'HBO' },
-  { match: 'Women Own the Culture.', title: 'MLB' },
+  { match: 'Women Own the Culture.', title: 'MLB', carouselImage: '/images/clients/mlb-stadium-crowd.png' },
   { match: 'Kindli', title: 'Kindli' },
 ]
   .map((slide) => {
     const study = caseStudies.find((item) => item.title === slide.match);
-    return study ? { ...study, carouselTitle: slide.title } : null;
+    return study ? { ...study, carouselTitle: slide.title, carouselImage: slide.carouselImage ?? study.image } : null;
   })
-  .filter((slide): slide is typeof caseStudies[number] & { carouselTitle: string } => Boolean(slide));
+  .filter((slide): slide is typeof caseStudies[number] & { carouselTitle: string; carouselImage: string } => Boolean(slide));
 
 export default function Home() {
   useScrollAnimation();
@@ -403,7 +403,7 @@ export default function Home() {
               />
             ) : (
               <Image
-                src={study.image}
+                src={study.carouselImage}
                 alt=""
                 fill
                 priority={index === 0}
