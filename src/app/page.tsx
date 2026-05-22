@@ -237,9 +237,25 @@ export default function Home() {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActiveWorkIndex((current) => (current + 1) % selectedWorkSlides.length);
-    }, 5000);
+    }, 8000);
 
     return () => window.clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') {
+        setActiveWorkIndex((current) => (
+          current - 1 + selectedWorkSlides.length
+        ) % selectedWorkSlides.length);
+      }
+      if (event.key === 'ArrowRight') {
+        setActiveWorkIndex((current) => (current + 1) % selectedWorkSlides.length);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   const showWorkSlide = (direction: 1 | -1) => {
