@@ -216,7 +216,7 @@ const selectedWorkSlideConfigs: SelectedWorkSlideConfig[] = [
   { match: 'UCLA Health', brand: 'UCLA Health', campaign: '', carouselImage: '/images/clients/ucla-health.webp' },
   { match: 'Boldyn Networks', brand: 'Boldyn Networks', campaign: '', carouselImage: '/images/clients/boldyn.webp' },
   { match: 'LA County', brand: 'LA County', campaign: '', carouselImage: '/images/clients/la-county.webp' },
-  { match: 'Women Raise the Game', brand: 'Women Raise the Game', campaign: '', carouselImage: '/images/clients/wrtg-new.png' },
+  { match: 'Women Raise the Game', brand: 'Women Raise the Game', campaign: '', carouselImage: '/images/clients/wrtg-carousel-champions.jpg' },
   { match: 'Kindli', brand: 'Kindli', campaign: '', carouselImage: '/images/clients/kindli.webp' },
 ];
 
