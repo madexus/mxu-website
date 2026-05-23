@@ -55,19 +55,28 @@ const clients = [
 
 const caseStudies = [
   {
-    title: 'Women Own the Culture.',
-    category: 'Fandom Marketing · Experiential',
+    title: 'WRTG x MLB x AUSL Honors',
+    category: 'EXPERIENTIAL · WOMEN\'S SPORTS',
     image: '/images/clients/ausl-mlb-generational-partnership.png',
     video: '',
-    subheading: 'MLB × AUSL · Women Raise the Game',
+    heroVimeo: { id: '1114059056', start: 14, duration: 8 },
+    subheading: 'The first strategic league-to-league investment in the bat-and-ball category.',
     subheadingItalic: true,
-    heroLine: 'Women\'s fandom isn\'t a niche. It\'s the growth engine. madeXus is built to move brands inside it.',
     challengeLabel: 'The Read',
     solutionLabel: 'What It Paid',
     resultsLabel: 'What We Did',
     labelStyle: 'pill' as const,
-    challenge: 'MLB All-Star Week, Atlanta · July 14, 2025 — Punch Bowl Social at The Battery\n\nWomen are the fastest-growing sports fan base in the country — and the most loyal. madeXus × WRTG activated that fandom at the intersection of baseball and softball, putting women at the center of MLB All-Star Week for the first time.',
-    solution: '$60K investment to activate women\'s fandom\n~$1M earned media value generated\n98.1M unique viewers reached (UVM)\n139K social reach across women\'s sports audience\n9.9K engagements — no paid media\n90% coverage in non-sports (lifestyle, news, TV)',
+    statsPlacement: 'afterSections' as const,
+    stats: [
+      { value: '$60K', label: 'investment to activate women\'s fandom' },
+      { value: '~$1M', label: 'earned media value generated' },
+      { value: '98.1M', label: 'unique viewers reached (UVM)' },
+      { value: '139K', label: 'social reach across women\'s sports audience' },
+      { value: '9.9K', label: 'engagements — no paid media' },
+      { value: '90%', label: 'coverage in non-sports (lifestyle, news, TV)' },
+    ],
+    challenge: 'Women Raise the Game, in partnership with Major League Baseball and Athletes Unlimited Softball League, staged Honoring a Generational Partnership during MLB All-Star Week 2025. The event marked the first strategic league-to-league investment in the bat-and-ball category.',
+    solution: 'The partnership shaped a high-leverage business moment to extend beyond the core audience, cementing its place as a category-defining milestone in women\'s sports.',
     results: 'Fandom Activation — Built the room where women\'s sports power actually sits — athletes, execs, creators, and league commissioners in one curated space.\n\nCulture Crossover — 90% of media pickup landed outside sports — in general news, broadcast TV, and lifestyle. Women\'s fandom travels beyond the box score.\n\nCommunity-First Content — Storytelling strategy drove 98M+ UVM organically. Female fan community amplified the moment far beyond any paid media could.',
   },
   {
@@ -194,7 +203,7 @@ const selectedWorkSlides = [
   { match: 'Human by Orientation', brand: 'HBO', campaign: 'Human by Orientation' },
   { match: 'Palante.', brand: 'HBO', campaign: 'Palante' },
   { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', brand: 'Invisalign', campaign: 'Women Raise the Game Champions' },
-  { match: 'Women Own the Culture.', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-stadium-crowd.png' },
+  { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-stadium-crowd.png' },
   { match: 'Kindli', brand: 'Kindli', campaign: '' },
 ]
   .map((slide) => {

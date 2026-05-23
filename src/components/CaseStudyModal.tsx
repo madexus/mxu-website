@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 interface CaseStudy {
@@ -8,6 +8,7 @@ interface CaseStudy {
   category: string;
   image: string;
   video: string;
+  heroVimeo?: { id: string; start: number; duration: number };
   challenge: string;
   solution: string;
   results: string;
@@ -19,6 +20,7 @@ interface CaseStudy {
   subheadingItalic?: boolean;
   labelStyle?: 'pill';
   stats?: { value: string; label: string }[];
+  statsPlacement?: 'afterSections';
 }
 
 interface CaseStudyModalProps {
@@ -29,6 +31,8 @@ interface CaseStudyModalProps {
 }
 
 export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }: CaseStudyModalProps) {
+  const vimeoIframeRef = useRef<HTMLIFrameElement>(null);
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -46,12 +50,45 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen || !study?.heroVimeo) return;
+
+    const sendVimeoCommand = (method: string, value?: number) => {
+      const player = vimeoIframeRef.current?.contentWindow;
+      if (!player) return;
+      player.postMessage(JSON.stringify({ method, value }), 'https://player.vimeo.com');
+    };
+
+    const restartClip = () => {
+      sendVimeoCommand('setCurrentTime', study.heroVimeo?.start ?? 0);
+      sendVimeoCommand('play');
+    };
+
+    const startTimeout = window.setTimeout(restartClip, 900);
+    const loopInterval = window.setInterval(restartClip, study.heroVimeo.duration * 1000);
+
+    return () => {
+      window.clearTimeout(startTimeout);
+      window.clearInterval(loopInterval);
+    };
+  }, [isOpen, study]);
+
   if (!isOpen || !study) return null;
 
   const challengeLabel = study.challengeLabel ?? 'Challenge';
   const solutionLabel = study.solutionLabel ?? 'Solution';
   const resultsLabel = study.resultsLabel ?? 'Results';
   const labelClass = 'inline-flex bg-coral-red px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white mb-3';
+  const statsBlock = study.stats && study.stats.length > 0 ? (
+    <div className="grid gap-3 sm:grid-cols-2">
+      {study.stats.map((stat) => (
+        <div key={`${stat.value}-${stat.label}`} className="bg-coral-red p-5 text-white">
+          <div className="font-display text-[clamp(1.8rem,4vw,3rem)] leading-none">{stat.value}</div>
+          <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white/85">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  ) : null;
 
   return (
     <div
@@ -75,14 +112,24 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
           </svg>
         </button>
 
-        {/* Image */}
-        <div className="relative aspect-[16/9] w-full">
-          <Image
-            src={study.image}
-            alt={study.title}
-            fill
-            className="object-cover"
-          />
+        {/* Hero media */}
+        <div className="relative aspect-[16/9] w-full bg-charcoal">
+          {study.heroVimeo ? (
+            <iframe
+              ref={vimeoIframeRef}
+              src={`https://player.vimeo.com/video/${study.heroVimeo.id}?autoplay=1&muted=1&controls=0&loop=0&playsinline=1&api=1#t=${study.heroVimeo.start}s`}
+              title={study.title}
+              allow="autoplay; fullscreen; picture-in-picture"
+              className="absolute inset-0 h-full w-full"
+            />
+          ) : (
+            <Image
+              src={study.image}
+              alt={study.title}
+              fill
+              className="object-cover"
+            />
+          )}
         </div>
 
         {/* Content */}
@@ -104,15 +151,8 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
             </p>
           )}
 
-          {study.stats && study.stats.length > 0 && (
-            <div className="mb-10 grid gap-3 sm:grid-cols-2">
-              {study.stats.map((stat) => (
-                <div key={`${stat.value}-${stat.label}`} className="bg-coral-red p-5 text-white">
-                  <div className="font-display text-[clamp(1.8rem,4vw,3rem)] leading-none">{stat.value}</div>
-                  <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white/85">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+          {study.statsPlacement !== 'afterSections' && statsBlock && (
+            <div className="mb-10">{statsBlock}</div>
           )}
 
           <div className="space-y-8">
@@ -124,6 +164,9 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
               <h3 className={labelClass}>{solutionLabel}</h3>
               <p className="text-base leading-relaxed text-charcoal">{study.solution}</p>
             </div>
+            {study.statsPlacement === 'afterSections' && statsBlock && (
+              <div>{statsBlock}</div>
+            )}
             {study.results && resultsLabel && (
               <div>
                 <h3 className={labelClass}>{resultsLabel}</h3>

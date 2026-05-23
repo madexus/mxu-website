@@ -23,8 +23,8 @@ const archiveItems = [
     image: '/images/clients/palante.png',
   },
   {
-    title: 'MLB All-Star Week / Women Own the Culture',
-    category: 'Fandom Marketing · Experiential',
+    title: 'WRTG x MLB x AUSL Honors',
+    category: 'EXPERIENTIAL · WOMEN\'S SPORTS',
     image: '/images/clients/ausl-mlb-generational-partnership.png',
   },
   {
