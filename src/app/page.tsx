@@ -206,11 +206,11 @@ type SelectedWorkSlideConfig = {
 };
 
 const selectedWorkSlideConfigs: SelectedWorkSlideConfig[] = [
-  { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-all-star-homepage.jpg' },
   { match: 'AT&T Dream in Black', brand: 'AT&T', campaign: 'Dream in Black' },
   { match: 'Human by Orientation', brand: 'HBO', campaign: 'Human by Orientation' },
   { match: 'Palante.', brand: 'HBO', campaign: 'Palante' },
   { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', brand: 'Invisalign', campaign: 'Women Raise the Game Champions' },
+  { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-all-star-homepage.jpg' },
   { match: 'Kindli', brand: 'Kindli', campaign: '' },
 ];
 
