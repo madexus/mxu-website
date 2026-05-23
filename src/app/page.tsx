@@ -199,11 +199,11 @@ const team = [
 ];
 
 const selectedWorkSlides = [
+  { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-stadium-crowd.png' },
   { match: 'AT&T Dream in Black', brand: 'AT&T', campaign: 'Dream in Black' },
   { match: 'Human by Orientation', brand: 'HBO', campaign: 'Human by Orientation' },
   { match: 'Palante.', brand: 'HBO', campaign: 'Palante' },
   { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', brand: 'Invisalign', campaign: 'Women Raise the Game Champions' },
-  { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-stadium-crowd.png' },
   { match: 'Kindli', brand: 'Kindli', campaign: '' },
 ]
   .map((slide) => {
