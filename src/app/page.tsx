@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import EmailGateModal from '@/components/EmailGateModal';
@@ -203,11 +203,10 @@ type SelectedWorkSlideConfig = {
   brand: string;
   campaign: string;
   carouselImage?: string;
-  carouselVimeo?: { id: string; start: number; duration: number };
 };
 
 const selectedWorkSlideConfigs: SelectedWorkSlideConfig[] = [
-  { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselVimeo: { id: '1114059056', start: 14, duration: 8 } },
+  { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-all-star-homepage.jpg' },
   { match: 'AT&T Dream in Black', brand: 'AT&T', campaign: 'Dream in Black' },
   { match: 'Human by Orientation', brand: 'HBO', campaign: 'Human by Orientation' },
   { match: 'Palante.', brand: 'HBO', campaign: 'Palante' },
@@ -218,13 +217,12 @@ const selectedWorkSlideConfigs: SelectedWorkSlideConfig[] = [
 const selectedWorkSlides = selectedWorkSlideConfigs
   .map((slide) => {
     const study = caseStudies.find((item) => item.title === slide.match);
-    return study ? { ...study, carouselBrand: slide.brand, carouselCampaign: slide.campaign, carouselImage: slide.carouselImage ?? study.image, carouselVimeo: slide.carouselVimeo } : null;
+    return study ? { ...study, carouselBrand: slide.brand, carouselCampaign: slide.campaign, carouselImage: slide.carouselImage ?? study.image } : null;
   })
   .filter(Boolean) as Array<typeof caseStudies[number] & {
     carouselBrand: string;
     carouselCampaign: string;
     carouselImage: string;
-    carouselVimeo?: { id: string; start: number; duration: number };
   }>;
 
 export default function Home() {
@@ -239,7 +237,6 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [navOnLightSection, setNavOnLightSection] = useState(false);
   const [activeWorkIndex, setActiveWorkIndex] = useState(0);
-  const carouselVimeoRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -266,30 +263,6 @@ export default function Home() {
 
     return () => window.clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    const activeSlide = selectedWorkSlides[activeWorkIndex];
-    if (!activeSlide?.carouselVimeo) return;
-
-    const sendVimeoCommand = (method: string, value?: number) => {
-      const player = carouselVimeoRef.current?.contentWindow;
-      if (!player) return;
-      player.postMessage(JSON.stringify({ method, value }), 'https://player.vimeo.com');
-    };
-
-    const restartClip = () => {
-      sendVimeoCommand('setCurrentTime', activeSlide.carouselVimeo?.start ?? 0);
-      sendVimeoCommand('play');
-    };
-
-    const startTimeout = window.setTimeout(restartClip, 900);
-    const loopInterval = window.setInterval(restartClip, activeSlide.carouselVimeo.duration * 1000);
-
-    return () => {
-      window.clearTimeout(startTimeout);
-      window.clearInterval(loopInterval);
-    };
-  }, [activeWorkIndex]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -456,15 +429,7 @@ export default function Home() {
               setCaseStudyModalOpen(true);
             }}
           >
-            {study.carouselVimeo ? (
-              <iframe
-                ref={index === activeWorkIndex ? carouselVimeoRef : undefined}
-                src={`https://player.vimeo.com/video/${study.carouselVimeo.id}?background=1&autoplay=1&muted=1&controls=0&loop=0&playsinline=1&title=0&byline=0&portrait=0&api=1#t=${study.carouselVimeo.start}s`}
-                title={study.title}
-                allow="autoplay; fullscreen; picture-in-picture"
-                className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-screen min-w-[177.78vh] -translate-x-1/2 -translate-y-1/2 border-0"
-              />
-            ) : study.video ? (
+            {study.video ? (
               <video
                 className="absolute inset-0 h-full w-full object-cover"
                 src={study.video}
