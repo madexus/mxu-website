@@ -206,12 +206,17 @@ type SelectedWorkSlideConfig = {
 };
 
 const selectedWorkSlideConfigs: SelectedWorkSlideConfig[] = [
-  { match: 'AT&T Dream in Black', brand: 'AT&T', campaign: 'Dream in Black' },
-  { match: 'Human by Orientation', brand: 'HBO', campaign: 'Human by Orientation' },
-  { match: 'Palante.', brand: 'HBO', campaign: 'Palante' },
-  { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', brand: 'Invisalign', campaign: 'Women Raise the Game Champions' },
-  { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-all-star-homepage.jpg' },
-  { match: 'Kindli', brand: 'Kindli', campaign: '' },
+  { match: 'AT&T Dream in Black', brand: 'AT&T', campaign: 'Dream in Black', carouselImage: '/images/clients/att.webp' },
+  { match: 'Human by Orientation', brand: 'HBO', campaign: 'Human by Orientation', carouselImage: '/images/clients/human-by-orientation.png' },
+  { match: 'Palante.', brand: 'HBO', campaign: 'Palante', carouselImage: '/images/clients/palante.png' },
+  { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', brand: 'Invisalign', campaign: 'Women Raise the Game Champions', carouselImage: '/images/clients/diana-flores.webp' },
+  { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/ausl-mlb-generational-partnership.png' },
+  { match: 'Mielle', brand: 'Mielle', campaign: 'Super Bowl', carouselImage: '/images/clients/mielle.webp' },
+  { match: 'UCLA Health', brand: 'UCLA Health', campaign: '', carouselImage: '/images/clients/ucla-health.webp' },
+  { match: 'Boldyn Networks', brand: 'Boldyn Networks', campaign: '', carouselImage: '/images/clients/boldyn.webp' },
+  { match: 'LA County', brand: 'LA County', campaign: '', carouselImage: '/images/clients/la-county.webp' },
+  { match: 'Women Raise the Game', brand: 'Women Raise the Game', campaign: '', carouselImage: '/images/clients/wrtg-new.png' },
+  { match: 'Kindli', brand: 'Kindli', campaign: '', carouselImage: '/images/clients/kindli.webp' },
 ];
 
 const selectedWorkSlides = selectedWorkSlideConfigs
@@ -429,26 +434,14 @@ export default function Home() {
               setCaseStudyModalOpen(true);
             }}
           >
-            {study.video ? (
-              <video
-                className="absolute inset-0 h-full w-full object-cover"
-                src={study.video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              />
-            ) : (
-              <Image
-                src={study.carouselImage}
-                alt=""
-                fill
-                priority={index === 0}
-                className="object-cover transition-transform duration-[6500ms] ease-linear group-hover:scale-105"
-                sizes="100vw"
-              />
-            )}
+            <Image
+              src={study.carouselImage}
+              alt=""
+              fill
+              priority={index === 0}
+              className="object-cover transition-transform duration-[6500ms] ease-linear group-hover:scale-105"
+              sizes="100vw"
+            />
             <div className="absolute inset-0 bg-black/35 transition-colors duration-500 group-hover:bg-black/50" />
             <div className="absolute bottom-24 left-6 z-10 flex max-w-[calc(100vw-3rem)] flex-col items-start gap-2 md:bottom-28 md:left-12 md:max-w-lg md:flex-row md:items-center">
               <span className="inline-flex bg-coral-red px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-white md:px-4">
