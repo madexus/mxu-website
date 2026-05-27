@@ -211,7 +211,7 @@ const selectedWorkSlideConfigs: SelectedWorkSlideConfig[] = [
   { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', brand: 'Invisalign', campaign: 'Game Changers / #ConfidenceClickedIn', carouselImage: '/images/clients/diana-flores.webp', carouselVideo: '/videos/invisalign-confidence-clicked-in.mp4' },
   { match: 'Women Raise the Game', brand: 'Women Raise the Game', campaign: '', carouselImage: '/images/clients/wrtg-carousel-champions.jpg' },
   { match: 'AT&T Dream in Black', brand: 'AT&T', campaign: 'Dream in Black', carouselImage: '/images/clients/att.webp', carouselVideo: '/videos/att-dreaminblack.mp4' },
-  { match: 'Human by Orientation', brand: 'HBO', campaign: 'Human by Orientation', carouselImage: '/images/clients/human-thrive-heated-carousel.png' },
+  { match: 'Human by Orientation', brand: 'HBO', campaign: 'Human by Orientation', carouselImage: '/images/clients/human-thrive-carousel.png' },
   { match: 'Palante.', brand: 'HBO', campaign: 'Palante', carouselImage: '/images/clients/palante.png' },
   { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-all-star-homepage.jpg' },
   { match: 'UCLA Health', brand: 'UCLA Health', campaign: '', carouselImage: '/images/clients/ucla-health.webp' },
