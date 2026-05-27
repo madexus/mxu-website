@@ -207,7 +207,7 @@ type SelectedWorkSlideConfig = {
 };
 
 const selectedWorkSlideConfigs: SelectedWorkSlideConfig[] = [
-  { match: 'Mielle', brand: 'Mielle', campaign: 'Super Bowl', carouselImage: '/images/clients/mielle.webp' },
+  { match: 'Mielle', brand: 'Mielle', campaign: 'Super Bowl', carouselImage: '/images/clients/mielle-carousel-product.png' },
   { match: 'Exclusive Presenting Partner. #ConfidenceClickedIn.', brand: 'Invisalign', campaign: 'Game Changers / #ConfidenceClickedIn', carouselImage: '/images/clients/diana-flores.webp', carouselVideo: '/videos/invisalign-confidence-clicked-in.mp4' },
   { match: 'Women Raise the Game', brand: 'Women Raise the Game', campaign: '', carouselImage: '/images/clients/wrtg-carousel-champions.jpg' },
   { match: 'AT&T Dream in Black', brand: 'AT&T', campaign: 'Dream in Black', carouselImage: '/images/clients/att.webp', carouselVideo: '/videos/att-dreaminblack.mp4' },
