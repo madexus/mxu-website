@@ -450,13 +450,12 @@ export default function Home() {
                 sizes="100vw"
               />
               <div className="absolute inset-0 bg-black/20" />
-              <div className="absolute left-1/2 top-24 z-10 w-[min(96vw,1320px)] -translate-x-1/2 text-center md:top-28 lg:top-32">
+              <div className="absolute left-1/2 top-24 z-10 w-[min(92vw,1120px)] -translate-x-1/2 text-center md:top-28 lg:top-32">
                 <p className="font-sans text-[11px] font-light uppercase tracking-[0.32em] text-white md:text-xs">
                   WE ARE THE INSIDERS
                 </p>
-                <h1 className="mt-3 font-display text-[clamp(4rem,12vw,11rem)] font-normal uppercase leading-[0.88] text-white drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)] md:mt-4">
-                  <span className="block">Culture. Women.</span>
-                  <span className="block">Sport.</span>
+                <h1 className="mt-3 font-display text-[clamp(2.8rem,6.8vw,6.75rem)] font-normal uppercase leading-[0.9] text-white drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)] md:mt-4">
+                  Culture. Women. Sport.
                 </h1>
               </div>
             </div>
