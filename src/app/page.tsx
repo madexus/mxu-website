@@ -230,7 +230,16 @@ const selectedWorkSlides = selectedWorkSlideConfigs
     carouselCampaign: string;
     carouselImage: string;
     carouselVideo?: string;
-  }>; 
+  }>;
+
+const heroCarouselSlides = [
+  {
+    kind: 'intro' as const,
+    title: 'We Are the Insiders',
+    image: '/images/clients/insiders-hero-carousel.png',
+  },
+  ...selectedWorkSlides.map((study) => ({ kind: 'work' as const, study })),
+];
 
 export default function Home() {
   useScrollAnimation();
@@ -265,7 +274,7 @@ export default function Home() {
 
   useEffect(() => {
     const interval = window.setInterval(() => {
-      setActiveWorkIndex((current) => (current + 1) % selectedWorkSlides.length);
+      setActiveWorkIndex((current) => (current + 1) % heroCarouselSlides.length);
     }, 8000);
 
     return () => window.clearInterval(interval);
@@ -275,11 +284,11 @@ export default function Home() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'ArrowLeft') {
         setActiveWorkIndex((current) => (
-          current - 1 + selectedWorkSlides.length
-        ) % selectedWorkSlides.length);
+          current - 1 + heroCarouselSlides.length
+        ) % heroCarouselSlides.length);
       }
       if (event.key === 'ArrowRight') {
-        setActiveWorkIndex((current) => (current + 1) % selectedWorkSlides.length);
+        setActiveWorkIndex((current) => (current + 1) % heroCarouselSlides.length);
       }
     };
 
@@ -289,8 +298,8 @@ export default function Home() {
 
   const showWorkSlide = (direction: 1 | -1) => {
     setActiveWorkIndex((current) => (
-      current + direction + selectedWorkSlides.length
-    ) % selectedWorkSlides.length);
+      current + direction + heroCarouselSlides.length
+    ) % heroCarouselSlides.length);
   };
 
   return (
@@ -423,60 +432,88 @@ export default function Home() {
 
       {/* ─── SECTION 1: HERO — SELECTED WORK CAROUSEL ─── */}
       <section className="relative h-screen min-h-[720px] overflow-hidden bg-charcoal text-white" id="hero" aria-label="Selected Work">
-        {selectedWorkSlides.map((study, index) => (
-          <button
-            key={study.title}
-            type="button"
-            aria-hidden={activeWorkIndex !== index}
-            className={`group absolute inset-0 cursor-pointer text-left transition-opacity duration-700 ${
-              activeWorkIndex === index ? 'z-10 opacity-100' : 'z-0 opacity-0 pointer-events-none'
-            }`}
-            onClick={() => {
-              setSelectedCaseStudy(study);
-              setCaseStudyModalOpen(true);
-            }}
-          >
-            {study.carouselVideo ? (
-              <video
-                className="absolute inset-0 h-full w-full object-cover"
-                src={study.carouselVideo}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              />
-            ) : (
+        {heroCarouselSlides.map((slide, index) => (
+          slide.kind === 'intro' ? (
+            <div
+              key={slide.title}
+              aria-hidden={activeWorkIndex !== index}
+              className={`absolute inset-0 transition-opacity duration-700 ${
+                activeWorkIndex === index ? 'z-10 opacity-100' : 'z-0 opacity-0 pointer-events-none'
+              }`}
+            >
               <Image
-                src={study.carouselImage}
+                src={slide.image}
                 alt=""
                 fill
                 priority={index === 0}
-                className="object-cover transition-transform duration-[6500ms] ease-linear group-hover:scale-105"
+                className="object-cover"
                 sizes="100vw"
               />
-            )}
-            <div className="absolute inset-0 bg-black/35 transition-colors duration-500 group-hover:bg-black/50" />
-            <div className="absolute bottom-24 left-6 z-10 flex max-w-[calc(100vw-3rem)] flex-col items-start gap-2 md:bottom-28 md:left-12 md:max-w-lg md:flex-row md:items-center">
-              <span className="inline-flex bg-coral-red px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-white md:px-4">
-                {study.carouselBrand}
-              </span>
-              {study.carouselCampaign && (
-                <span className="text-sm font-medium leading-tight text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.55)] md:text-base">
-                  {study.carouselCampaign}
-                </span>
-              )}
+              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute bottom-24 left-6 z-10 max-w-[calc(100vw-3rem)] md:bottom-28 md:left-12">
+                <p className="font-sans text-[11px] font-light uppercase tracking-[0.32em] text-white md:text-xs">
+                  WE ARE THE INSIDERS
+                </p>
+                <p className="mt-2 text-3xl font-bold leading-none text-white drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)] md:text-6xl">
+                  Culture. Women. Sport.
+                </p>
+              </div>
             </div>
-          </button>
+          ) : (
+            <button
+              key={slide.study.title}
+              type="button"
+              aria-hidden={activeWorkIndex !== index}
+              className={`group absolute inset-0 cursor-pointer text-left transition-opacity duration-700 ${
+                activeWorkIndex === index ? 'z-10 opacity-100' : 'z-0 opacity-0 pointer-events-none'
+              }`}
+              onClick={() => {
+                setSelectedCaseStudy(slide.study);
+                setCaseStudyModalOpen(true);
+              }}
+            >
+              {slide.study.carouselVideo ? (
+                <video
+                  className="absolute inset-0 h-full w-full object-cover"
+                  src={slide.study.carouselVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                />
+              ) : (
+                <Image
+                  src={slide.study.carouselImage}
+                  alt=""
+                  fill
+                  priority={index === 0}
+                  className="object-cover transition-transform duration-[6500ms] ease-linear group-hover:scale-105"
+                  sizes="100vw"
+                />
+              )}
+              <div className="absolute inset-0 bg-black/35 transition-colors duration-500 group-hover:bg-black/50" />
+              <div className="absolute bottom-24 left-6 z-10 flex max-w-[calc(100vw-3rem)] flex-col items-start gap-2 md:bottom-28 md:left-12 md:max-w-lg md:flex-row md:items-center">
+                <span className="inline-flex bg-coral-red px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-white md:px-4">
+                  {slide.study.carouselBrand}
+                </span>
+                {slide.study.carouselCampaign && (
+                  <span className="text-sm font-medium leading-tight text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.55)] md:text-base">
+                    {slide.study.carouselCampaign}
+                  </span>
+                )}
+              </div>
+            </button>
+          )
         ))}
 
         <div className="absolute bottom-8 left-6 right-6 z-20 flex items-center justify-between gap-6 md:left-12 md:right-12">
           <div className="flex flex-1 items-center gap-2" aria-label="Selected Work progress">
-            {selectedWorkSlides.map((study, index) => (
+            {heroCarouselSlides.map((slide, index) => (
               <button
-                key={`${study.title}-dot`}
+                key={`${slide.kind === 'intro' ? slide.title : slide.study.title}-dot`}
                 type="button"
-                aria-label={`Show ${study.carouselBrand}${study.carouselCampaign ? ` - ${study.carouselCampaign}` : ''}`}
+                aria-label={slide.kind === 'intro' ? 'Show We Are the Insiders' : `Show ${slide.study.carouselBrand}${slide.study.carouselCampaign ? ` - ${slide.study.carouselCampaign}` : ''}`}
                 onClick={() => setActiveWorkIndex(index)}
                 className={`h-[3px] flex-1 transition-colors duration-300 ${
                   activeWorkIndex === index ? 'bg-coral-red' : 'bg-white/35 hover:bg-white/65'
