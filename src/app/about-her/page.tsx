@@ -95,8 +95,8 @@ export default function AboutHerPage() {
 
       <section className="relative min-h-screen overflow-hidden px-6 pb-16 pt-28 md:px-12 md:pb-20 md:pt-36">
         <Image
-          src="/images/about-her/asset-8.png"
-          alt="Two women against a concrete wall at night"
+          src="/images/about-her/about-her-hero.avif"
+          alt="Women gathered together"
           fill
           priority
           className="object-cover object-center"
