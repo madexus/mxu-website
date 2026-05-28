@@ -135,7 +135,7 @@ export default function AboutHerPage() {
             {reads.map((read) => (
               <article
                 key={read.num}
-                className="grid min-h-[380px] gap-8 py-14 md:min-h-[430px] md:grid-cols-[180px_1fr] md:py-20 lg:grid-cols-[220px_1fr_0.62fr] lg:items-start"
+                className="grid min-h-[380px] gap-8 py-14 md:min-h-[430px] md:grid-cols-[180px_1fr] md:py-20 lg:grid-cols-[220px_1fr] lg:items-start"
               >
                 <div className="flex items-center gap-5 md:block">
                   <span className="font-display text-[clamp(3.5rem,8vw,7.25rem)] leading-none text-coral-red">
@@ -143,12 +143,14 @@ export default function AboutHerPage() {
                   </span>
                   <span className="block h-px flex-1 bg-coral-red md:mt-8 md:h-[2px] md:w-28" />
                 </div>
-                <h3 className="max-w-3xl text-[clamp(2rem,5vw,5.1rem)] font-extrabold leading-[0.92] tracking-normal text-white">
-                  {read.title}
-                </h3>
-                <p className="max-w-xl self-end text-sm font-light leading-relaxed text-white/62 md:text-[15px] lg:pb-2">
-                  {read.body}
-                </p>
+                <div className="max-w-4xl">
+                  <h3 className="text-[clamp(1.8rem,4.15vw,4.35rem)] font-extrabold leading-[0.95] tracking-normal text-white">
+                    {read.title}
+                  </h3>
+                  <p className="mt-7 max-w-2xl text-sm font-light leading-relaxed text-white/62 md:text-[15px]">
+                    {read.body}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
