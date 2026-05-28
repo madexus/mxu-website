@@ -155,22 +155,10 @@ export default function AboutHerPage() {
         </div>
       </section>
 
-      <section className="relative min-h-[86vh] overflow-hidden px-6 py-28 md:px-12 md:py-32">
-        <Image
-          src="/images/about-her/asset-7.png"
-          alt="Four women against a blue sky"
-          fill
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/38" />
-        <div className="relative z-10 mx-auto flex min-h-[58vh] max-w-[1400px] flex-col justify-end">
-          <h2 className="max-w-4xl font-display text-[clamp(1.9rem,3.8vw,4rem)] uppercase leading-[1.02] tracking-tight text-white">
-            Give us a problem you&apos;re sitting on. We&apos;ll give you <Highlight>her.</Highlight>
-          </h2>
-          <p className="mt-10 text-base font-extrabold uppercase tracking-[0.16em] text-white md:text-lg">
-            madeXus | chris@madexus.com | madexus.com
-          </p>
-        </div>
+      <section className="flex min-h-[86vh] items-center justify-center bg-black px-6 py-28 text-center text-white md:px-12 md:py-32">
+        <h2 className="mx-auto max-w-5xl font-display text-[clamp(2.2rem,6.2vw,7rem)] uppercase leading-[0.95] tracking-normal text-white">
+          Give us a problem you&apos;re sitting on. We&apos;ll give you <span className="text-coral-red">her.</span>
+        </h2>
       </section>
     </main>
   );
