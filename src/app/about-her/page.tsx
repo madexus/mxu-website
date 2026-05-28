@@ -121,22 +121,34 @@ export default function AboutHerPage() {
         </div>
       </section>
 
-      <section className="bg-black px-6 py-16 text-white md:px-12 md:py-20">
+      <section className="bg-black px-6 py-20 text-white md:px-12 md:py-28">
         <div className="mx-auto max-w-[1400px]">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-            <h2 className="font-display text-[clamp(1.8rem,3vw,3.2rem)] uppercase leading-[1.05] tracking-tight">
+          <div className="grid gap-8 border-b border-white/18 pb-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+            <h2 className="font-display text-[clamp(2rem,4.2vw,4.9rem)] uppercase leading-[0.95] tracking-normal">
               Our four reads on how she behaves.
             </h2>
-            <p className="max-w-2xl text-xl italic leading-relaxed text-white/70">
+            <p className="max-w-2xl text-xl italic leading-relaxed text-white/58 md:text-2xl">
               Observations we&apos;ve earned by working inside the fandoms.
             </p>
           </div>
-          <div className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-8 divide-y divide-white/16">
             {reads.map((read) => (
-              <article key={read.num} className="flex min-h-[360px] flex-col bg-coral-red p-6 text-white">
-                <span className="mb-10 font-display text-[3.25rem] leading-none text-white/25">{read.num}</span>
-                <h3 className="text-xl font-bold leading-tight">{read.title}</h3>
-                <p className="mt-5 text-sm font-light leading-relaxed text-white/90">{read.body}</p>
+              <article
+                key={read.num}
+                className="grid min-h-[380px] gap-8 py-14 md:min-h-[430px] md:grid-cols-[180px_1fr] md:py-20 lg:grid-cols-[220px_1fr_0.62fr] lg:items-start"
+              >
+                <div className="flex items-center gap-5 md:block">
+                  <span className="font-display text-[clamp(3.5rem,8vw,7.25rem)] leading-none text-coral-red">
+                    {read.num}
+                  </span>
+                  <span className="block h-px flex-1 bg-coral-red md:mt-8 md:h-[2px] md:w-28" />
+                </div>
+                <h3 className="max-w-3xl text-[clamp(2.3rem,5.8vw,5.85rem)] font-extrabold leading-[0.9] tracking-normal text-white">
+                  {read.title}
+                </h3>
+                <p className="max-w-xl self-end text-sm font-light leading-relaxed text-white/62 md:text-[15px] lg:pb-2">
+                  {read.body}
+                </p>
               </article>
             ))}
           </div>
