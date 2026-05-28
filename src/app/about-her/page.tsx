@@ -143,7 +143,7 @@ export default function AboutHerPage() {
                   </span>
                   <span className="block h-px flex-1 bg-coral-red md:mt-8 md:h-[2px] md:w-28" />
                 </div>
-                <h3 className="max-w-3xl text-[clamp(2.3rem,5.8vw,5.85rem)] font-extrabold leading-[0.9] tracking-normal text-white">
+                <h3 className="max-w-3xl text-[clamp(2rem,5vw,5.1rem)] font-extrabold leading-[0.92] tracking-normal text-white">
                   {read.title}
                 </h3>
                 <p className="max-w-xl self-end text-sm font-light leading-relaxed text-white/62 md:text-[15px] lg:pb-2">
