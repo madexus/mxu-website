@@ -333,7 +333,7 @@ export default function Home() {
             />
           </a>
           <ul className="hidden md:flex items-center justify-center gap-6 lg:gap-8">
-            <li className="relative group">
+            <li>
               <a
                 href="#offerings"
                 className={`inline-flex items-center py-2 text-[12px] uppercase font-semibold transition-colors duration-300 drop-shadow-[0_1px_8px_rgba(0,0,0,0.28)] ${
@@ -342,22 +342,6 @@ export default function Home() {
               >
                 What We Do
               </a>
-              <div className="absolute left-1/2 top-full pt-3 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                <div className="min-w-[240px] bg-white text-charcoal shadow-2xl ring-1 ring-charcoal/10 py-3">
-                  {[
-                    ['Women Raise the Game', '#offerings'],
-                    ['Creator Ad Network', '#offerings'],
-                  ].map(([label, href]) => (
-                    <a
-                      key={label}
-                      href={href}
-                      className="block px-5 py-3 text-[12px] uppercase font-semibold hover:bg-coral-red hover:text-white transition-colors"
-                    >
-                      {label}
-                    </a>
-                  ))}
-                </div>
-              </div>
             </li>
             {[
               ['Work', '/work'],
@@ -410,8 +394,6 @@ export default function Home() {
           <div className="md:hidden bg-white/98 backdrop-blur-xl px-6 py-8 space-y-5 border-t border-charcoal/[0.04]">
             {[
               ['What We Do', '#offerings'],
-              ['Women Raise the Game', '#offerings'],
-              ['Creator Ad Network', '#offerings'],
               ['Work', '/work'],
               ['Insider', '#about'],
               ['About Her', '/about-her'],
