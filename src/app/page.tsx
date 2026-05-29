@@ -549,7 +549,7 @@ export default function Home() {
         </div>
         <div className="hidden lg:block absolute left-[40px] xl:left-[80px] top-[60%] w-[200px] pointer-events-none" style={{ transform: `translateY(${(scrollY - 800) * -0.08}px) rotate(4deg)` }}>
           <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-charcoal/5" style={{ transform: 'perspective(800px) rotateY(12deg) rotateX(2deg)' }}>
-            <Image src="/images/clients/kindli.webp" alt="" width={400} height={500} className="w-full h-auto" />
+            <Image src="/images/clients/fo-interview-card.png" alt="" width={455} height={594} className="w-full h-auto" />
           </div>
         </div>
 
@@ -561,7 +561,7 @@ export default function Home() {
         </div>
         <div className="hidden lg:block absolute right-[50px] xl:right-[90px] bottom-[8%] w-[300px] pointer-events-none" style={{ transform: `translateY(${(scrollY - 800) * -0.15}px) rotate(-3deg)` }}>
           <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-charcoal/5" style={{ transform: 'perspective(800px) rotateY(-8deg) rotateX(4deg)' }}>
-            <Image src="/images/clients/diana-flores.webp" alt="" width={480} height={360} className="w-full h-auto" />
+            <Image src="/images/clients/trinity-rodman-interview-card.png" alt="" width={445} height={600} className="w-full h-auto" />
           </div>
         </div>
 
