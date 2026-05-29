@@ -80,11 +80,11 @@ export default function CaseStudyModal({ isOpen, onClose, study, onWatchVideo }:
   const resultsLabel = study.resultsLabel ?? 'Results';
   const labelClass = 'inline-flex bg-coral-red px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white mb-3';
   const statsBlock = study.stats && study.stats.length > 0 ? (
-    <div className="grid gap-3 sm:grid-cols-2">
+    <div className="grid auto-rows-fr gap-3 sm:grid-cols-2">
       {study.stats.map((stat) => (
-        <div key={`${stat.value}-${stat.label}`} className="bg-coral-red p-5 text-white">
-          <div className="font-display text-[clamp(1.8rem,4vw,3rem)] leading-none">{stat.value}</div>
-          <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white/85">{stat.label}</div>
+        <div key={`${stat.value}-${stat.label}`} className="flex min-h-36 flex-col justify-center bg-coral-red p-6 text-white">
+          <div className="font-display text-4xl leading-none md:text-[2.75rem]">{stat.value}</div>
+          <div className="mt-3 text-[11px] font-bold uppercase leading-tight tracking-[0.16em] text-white/85">{stat.label}</div>
         </div>
       ))}
     </div>
