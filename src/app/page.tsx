@@ -547,24 +547,24 @@ export default function Home() {
         {/* Floating parallax images — left side */}
         <div className="hidden lg:block absolute left-[-60px] xl:left-[-20px] top-[10%] w-[260px] pointer-events-none" style={{ transform: `translateY(${(scrollY - 800) * -0.12}px) rotate(-6deg)` }}>
           <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-charcoal/5" style={{ transform: 'perspective(800px) rotateY(8deg) rotateX(-3deg)' }}>
-            <Image src="/images/clients/fo-interview-card.png" alt="" width={1080} height={1080} className="w-full h-auto" />
+            <Image src="/images/clients/invisalign-photo.webp" alt="" width={520} height={390} className="w-full h-auto" />
           </div>
         </div>
         <div className="hidden lg:block absolute left-[40px] xl:left-[80px] top-[60%] w-[200px] pointer-events-none" style={{ transform: `translateY(${(scrollY - 800) * -0.08}px) rotate(4deg)` }}>
           <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-charcoal/5" style={{ transform: 'perspective(800px) rotateY(12deg) rotateX(2deg)' }}>
-            <Image src="/images/clients/wrtg-nba-draft-quote-card.jpg" alt="" width={1080} height={1350} className="w-full h-auto" />
+            <Image src="/images/clients/kindli.webp" alt="" width={400} height={500} className="w-full h-auto" />
           </div>
         </div>
 
         {/* Floating parallax images — right side */}
         <div className="hidden lg:block absolute right-[-40px] xl:right-[0px] top-[15%] w-[280px] pointer-events-none" style={{ transform: `translateY(${(scrollY - 800) * -0.1}px) rotate(5deg)` }}>
           <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-charcoal/5" style={{ transform: 'perspective(800px) rotateY(-10deg) rotateX(-2deg)' }}>
-            <Image src="/images/clients/trinity-rodman-interview-card.png" alt="" width={1080} height={1080} className="w-full h-auto" />
+            <Image src="/images/clients/att.webp" alt="" width={440} height={330} className="w-full h-auto" />
           </div>
         </div>
         <div className="hidden lg:block absolute right-[50px] xl:right-[90px] bottom-[8%] w-[300px] pointer-events-none" style={{ transform: `translateY(${(scrollY - 800) * -0.15}px) rotate(-3deg)` }}>
           <div className="rounded-lg overflow-hidden shadow-2xl ring-1 ring-charcoal/5" style={{ transform: 'perspective(800px) rotateY(-8deg) rotateX(4deg)' }}>
-            <Image src="/images/clients/wrtg-renata-simril-latinas-quote-card.jpg" alt="" width={1080} height={1080} className="w-full h-auto" />
+            <Image src="/images/clients/diana-flores.webp" alt="" width={480} height={360} className="w-full h-auto" />
           </div>
         </div>
 
