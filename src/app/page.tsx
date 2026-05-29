@@ -204,6 +204,7 @@ type SelectedWorkSlideConfig = {
   campaign: string;
   carouselImage?: string;
   carouselVideo?: string;
+  carouselObjectPosition?: string;
 };
 
 const selectedWorkSlideConfigs: SelectedWorkSlideConfig[] = [
@@ -213,7 +214,7 @@ const selectedWorkSlideConfigs: SelectedWorkSlideConfig[] = [
   { match: 'AT&T Dream in Black', brand: 'AT&T', campaign: 'Dream in Black', carouselImage: '/images/clients/att.webp', carouselVideo: '/videos/att-dreaminblack.mp4' },
   { match: 'Human by Orientation', brand: 'HBO', campaign: 'Human by Orientation', carouselImage: '/images/clients/human-thrive-carousel.png' },
   { match: 'Palante.', brand: 'HBO', campaign: 'Palante', carouselImage: '/images/clients/palante.png' },
-  { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-all-star-carousel.jpg', carouselVideo: '/videos/mlb-all-star-carousel.mp4' },
+  { match: 'WRTG x MLB x AUSL Honors', brand: 'MLB', campaign: 'All-Star Week', carouselImage: '/images/clients/mlb-all-star-carousel.jpg', carouselVideo: '/videos/mlb-all-star-carousel.mp4', carouselObjectPosition: 'center center' },
   { match: 'UCLA Health', brand: 'UCLA Health', campaign: '', carouselImage: '/images/clients/ucla-health.webp' },
   { match: 'Boldyn Networks', brand: 'Boldyn Networks', campaign: '', carouselImage: '/images/clients/boldyn.webp' },
   { match: 'LA County', brand: 'LA County', campaign: '', carouselImage: '/images/clients/la-county.webp' },
@@ -223,13 +224,14 @@ const selectedWorkSlideConfigs: SelectedWorkSlideConfig[] = [
 const selectedWorkSlides = selectedWorkSlideConfigs
   .map((slide) => {
     const study = caseStudies.find((item) => item.title === slide.match);
-    return study ? { ...study, carouselBrand: slide.brand, carouselCampaign: slide.campaign, carouselImage: slide.carouselImage ?? study.image, carouselVideo: slide.carouselVideo } : null;
+    return study ? { ...study, carouselBrand: slide.brand, carouselCampaign: slide.campaign, carouselImage: slide.carouselImage ?? study.image, carouselVideo: slide.carouselVideo, carouselObjectPosition: slide.carouselObjectPosition } : null;
   })
   .filter(Boolean) as Array<typeof caseStudies[number] & {
     carouselBrand: string;
     carouselCampaign: string;
     carouselImage: string;
     carouselVideo?: string;
+    carouselObjectPosition?: string;
   }>;
 
 const heroCarouselSlides = [
@@ -457,6 +459,7 @@ export default function Home() {
               {slide.study.carouselVideo ? (
                 <video
                   className="absolute inset-0 h-full w-full object-cover"
+                  style={slide.study.carouselObjectPosition ? { objectPosition: slide.study.carouselObjectPosition } : undefined}
                   src={slide.study.carouselVideo}
                   autoPlay
                   muted
