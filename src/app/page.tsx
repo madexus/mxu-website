@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import EmailGateModal from '@/components/EmailGateModal';
@@ -254,6 +254,9 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [navOnLightSection, setNavOnLightSection] = useState(false);
   const [activeWorkIndex, setActiveWorkIndex] = useState(0);
+  const heroSectionRef = useRef<HTMLElement | null>(null);
+  const carouselVideoRefs = useRef<Array<HTMLVideoElement | null>>([]);
+  const [heroInView, setHeroInView] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -276,10 +279,37 @@ export default function Home() {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActiveWorkIndex((current) => (current + 1) % heroCarouselSlides.length);
-    }, 8000);
+    }, 6000);
 
     return () => window.clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    const heroSection = heroSectionRef.current;
+    if (!heroSection) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroInView(entry.isIntersecting),
+      { threshold: 0.35 }
+    );
+
+    observer.observe(heroSection);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    carouselVideoRefs.current.forEach((video, index) => {
+      if (!video) return;
+
+      if (heroInView && index === activeWorkIndex) {
+        video.play().catch(() => undefined);
+        return;
+      }
+
+      video.pause();
+      video.currentTime = 0;
+    });
+  }, [activeWorkIndex, heroInView]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -414,7 +444,7 @@ export default function Home() {
       </nav>
 
       {/* ─── SECTION 1: HERO — SELECTED WORK CAROUSEL ─── */}
-      <section className="relative h-screen min-h-[720px] overflow-hidden bg-charcoal text-white" id="hero" aria-label="Selected Work">
+      <section ref={heroSectionRef} className="relative h-screen min-h-[720px] overflow-hidden bg-charcoal text-white" id="hero" aria-label="Selected Work">
         {heroCarouselSlides.map((slide, index) => (
           slide.kind === 'intro' ? (
             <div
@@ -457,10 +487,12 @@ export default function Home() {
             >
               {slide.study.carouselVideo ? (
                 <video
+                  ref={(element) => {
+                    carouselVideoRefs.current[index] = element;
+                  }}
                   className="absolute inset-0 h-full w-full object-cover"
                   style={slide.study.carouselObjectPosition ? { objectPosition: slide.study.carouselObjectPosition } : undefined}
                   src={slide.study.carouselVideo}
-                  autoPlay
                   muted
                   loop
                   playsInline
