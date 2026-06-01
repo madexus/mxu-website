@@ -9,6 +9,7 @@ import VideoModal from '@/components/VideoModal';
 const archiveItems = [
   {
     title: 'AT&T Dream in Black',
+    brandLabel: 'AT&T',
     category: 'Fandom Marketing · Creator Network',
     image: '/images/clients/att.webp',
     video: '/videos/att-dreaminblack.mp4',
@@ -18,6 +19,7 @@ const archiveItems = [
   },
   {
     title: 'Human by Orientation',
+    brandLabel: 'HBO Max',
     category: 'Brand · Platform',
     image: '/images/clients/human-by-orientation.png',
     video: '',
@@ -34,6 +36,7 @@ const archiveItems = [
   },
   {
     title: 'Women Raise the Game - Champions',
+    brandLabel: 'Invisalign',
     modalTitle: 'Exclusive Presenting Partner. #ConfidenceClickedIn.',
     category: 'Creator Campaign · Super Bowl · WRTG',
     image: '/images/clients/diana-flores.webp',
@@ -52,6 +55,7 @@ const archiveItems = [
   },
   {
     title: 'Palante',
+    brandLabel: 'HBO Max',
     modalTitle: 'Palante.',
     category: 'Brand · Platform',
     image: '/images/clients/palante.png',
@@ -67,6 +71,7 @@ const archiveItems = [
   },
   {
     title: 'WRTG x MLB x AUSL Honors',
+    brandLabel: 'MLB',
     category: 'EXPERIENTIAL · WOMEN\'S SPORTS',
     image: '/images/clients/mlb-all-star-archive.jpg',
     video: '',
@@ -91,6 +96,7 @@ const archiveItems = [
   },
   {
     title: 'Kindli',
+    brandLabel: 'Kindli',
     category: 'Brand Strategy · Go-to-Market',
     image: '/images/clients/kindli.webp',
     video: '/videos/kindli.mp4',
@@ -100,6 +106,7 @@ const archiveItems = [
   },
   {
     title: 'Women Raise the Game',
+    brandLabel: 'Women Raise the Game',
     category: 'Women Raise the Game · Content',
     image: '/images/clients/wrtg-new.png',
     video: '/videos/wrtg-gamechangers.mp4',
@@ -109,6 +116,7 @@ const archiveItems = [
   },
   {
     title: 'Boldyn Networks',
+    brandLabel: 'Boldyn Networks',
     category: 'Brand · Campaign',
     image: '/images/clients/boldyn.webp',
     video: '/videos/boldyn-intro.mp4',
@@ -118,6 +126,7 @@ const archiveItems = [
   },
   {
     title: 'Mielle',
+    brandLabel: 'Mielle',
     category: 'Creator Campaign · Super Bowl',
     image: '/images/clients/mielle.webp',
     video: '',
@@ -127,6 +136,7 @@ const archiveItems = [
   },
   {
     title: 'UCLA Health',
+    brandLabel: 'UCLA Health',
     category: 'Training · Brand Brief',
     image: '/images/clients/ucla-health.webp',
     video: '',
@@ -136,6 +146,7 @@ const archiveItems = [
   },
   {
     title: 'LA County',
+    brandLabel: 'LA County',
     category: 'Campaign · Recap',
     image: '/images/clients/la-county.webp',
     video: '/videos/take-action-recap.mp4',
@@ -210,6 +221,9 @@ export default function WorkArchive() {
                     sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   />
                   <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/35" />
+                  <div className="absolute left-4 top-4 z-10 bg-coral-red px-3 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.24)]">
+                    {item.brandLabel}
+                  </div>
                 </div>
                 <div className="pt-4">
                   <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.18em] text-coral-red">
