@@ -68,9 +68,8 @@ const archiveItems = [
   {
     title: 'WRTG x MLB x AUSL Honors',
     category: 'EXPERIENTIAL · WOMEN\'S SPORTS',
-    image: '/images/clients/ausl-mlb-generational-partnership.png',
+    image: '/images/clients/mlb-all-star-archive.jpg',
     video: '',
-    heroVimeo: { id: '1114059056', start: 14, duration: 8 },
     subheading: 'The first strategic league-to-league investment in the bat-and-ball category.',
     subheadingItalic: true,
     challengeLabel: 'The Read',
