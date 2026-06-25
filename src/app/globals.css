@@ -82,13 +82,6 @@ body {
 .hero-reveal-delay-4 { animation-delay: 0.7s; }
 .hero-reveal-delay-5 { animation-delay: 0.9s; }
 
-@media (max-width: 767px) {
-  .hero-intro-headline {
-    font-size: clamp(4.75rem, 20vw, 6.5rem);
-    line-height: 0.86;
-  }
-}
-
 /* ─── Scroll animation ─── */
 .fade-up {
   opacity: 0;
