@@ -277,12 +277,12 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const interval = window.setInterval(() => {
+    const timeout = window.setTimeout(() => {
       setActiveWorkIndex((current) => (current + 1) % heroCarouselSlides.length);
-    }, 6000);
+    }, 13000);
 
-    return () => window.clearInterval(interval);
-  }, []);
+    return () => window.clearTimeout(timeout);
+  }, [activeWorkIndex]);
 
   useEffect(() => {
     const heroSection = heroSectionRef.current;
