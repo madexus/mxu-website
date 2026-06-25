@@ -474,7 +474,7 @@ export default function Home() {
                 <p className="font-sans text-[11px] font-light uppercase tracking-[0.32em] text-white md:text-xs">
                   WE ARE THE INSIDERS
                 </p>
-                <h1 className="mt-3 font-display text-[clamp(2.8rem,6.8vw,6.75rem)] font-normal uppercase leading-[0.9] text-white drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)] md:mt-4">
+                <h1 className="hero-intro-headline mt-3 font-display text-[clamp(2.8rem,6.8vw,6.75rem)] font-normal uppercase leading-[0.9] text-white drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)] md:mt-4">
                   Culture. Women. Sport.
                 </h1>
               </div>
