@@ -242,6 +242,13 @@ const heroCarouselSlides = [
   ...selectedWorkSlides.map((study) => ({ kind: 'work' as const, study })),
 ];
 
+const FIRST_HERO_SLIDE_DURATION_MS = 13000;
+const HERO_SLIDE_DURATION_MS = 6000;
+
+const getHeroSlideDuration = (index: number) => (
+  index === 0 ? FIRST_HERO_SLIDE_DURATION_MS : HERO_SLIDE_DURATION_MS
+);
+
 export default function Home() {
   useScrollAnimation();
   const [modalOpen, setModalOpen] = useState(false);
@@ -279,7 +286,7 @@ export default function Home() {
   useEffect(() => {
     const timeout = window.setTimeout(() => {
       setActiveWorkIndex((current) => (current + 1) % heroCarouselSlides.length);
-    }, 13000);
+    }, getHeroSlideDuration(activeWorkIndex));
 
     return () => window.clearTimeout(timeout);
   }, [activeWorkIndex]);
